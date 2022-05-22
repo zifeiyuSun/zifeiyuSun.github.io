@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="以此记录日常的工作和学习">
+  
+  <title>
+    Flex布局 |
+    
+    田木夕
+  </title>
+  <!-- Icon -->
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-Css/Flex布局" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  Flex布局
+</h1>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2022/05/22/Css/Flex%E5%B8%83%E5%B1%80/" class="article-date">
+  <time datetime="2022-05-22T03:02:03.000Z" itemprop="datePublished">2022-05-22</time>
+</a>
+      
+<div class="article-category">
+  <a class="article-category-link" href="/categories/css/">css</a>
+</div>
+
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+      <blockquote>
+<p>弹性布局分为两块设置，container（容器）和items（项目）。w3c标注和各浏览器标准(比如MDN文档)有差异，比如justify-content属性值w3c没有stretch，只有flex-start | flex-end | center | space-between | space-around（<a target="_blank" rel="noopener" href="https://www.w3.org/TR/css-flexbox-1/#justify-content-property%EF%BC%89%E3%80%82">https://www.w3.org/TR/css-flexbox-1/#justify-content-property）。</a></p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="容器样式"><a href="#容器样式" class="headerlink" title="容器样式"></a>容器样式</h1><hr>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><span style="width: 150px;display:inline-block;">display</span></td>
+<td>flex 、 inline-flex</td>
+</tr>
+<tr>
+<td>flex-direction</td>
+<td>row、 column、row-reverse、column-reverse</td>
+</tr>
+<tr>
+<td>justify-content</td>
+<td>center、start、end、left、right、flex-start、flex-end、<br>space-between、space-around、space-evenly</td>
+</tr>
+<tr>
+<td>align-items</td>
+<td>center、start、end、left、right、flex-start、flex-end、stretch、self-start、self-end、baseline<br>项目在交叉轴上的对齐方式</td>
+</tr>
+<tr>
+<td>flex-wrap</td>
+<td>nowrap(默认)不换行、wrap 换行、wrap-reverse 换行且行反向排，最后一行排在第一个。<br><span style="color: #ce3737">(即使设置了项目的宽度，当可分配空间小于设定宽度时，项目会自动被挤压以在一行排列。当设置wrap时，项目设置的width依然有效，排不下时自动换行。)</span></td>
+</tr>
+<tr>
+<td>flex-flow</td>
+<td>flex-direction、flex-wrap的合并简写形式，ex: flex-flow: row nowrap;</td>
+</tr>
+</tbody></table>
+<h2 id="display-flex-inline-flex"><a href="#display-flex-inline-flex" class="headerlink" title="display: flex | inline-flex;"></a>display: flex | inline-flex;</h2><hr>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>flex</td>
+<td>将容器设置成块级弹性盒子。</td>
+</tr>
+<tr>
+<td>inline-flex</td>
+<td>将容器设置成内联弹性盒子。同block、inline-block之间的区别。</td>
+</tr>
+</tbody></table>
+<h2 id="flex-direction：row-column"><a href="#flex-direction：row-column" class="headerlink" title="flex-direction：row | column"></a>flex-direction：row | column</h2><hr>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>row</td>
+<td>主轴方向排列，即x轴。默认为row；</td>
+</tr>
+<tr>
+<td>column</td>
+<td>纵轴方向排列，即y轴。</td>
+</tr>
+<tr>
+<td>row-reverse</td>
+<td>x轴排列，倒序排；</td>
+</tr>
+<tr>
+<td>column-reverse</td>
+<td>y轴排列，倒序排。</td>
+</tr>
+</tbody></table>
+<h2 id="justify-content-子元素在主轴上的分布方式"><a href="#justify-content-子元素在主轴上的分布方式" class="headerlink" title="justify-content 子元素在主轴上的分布方式"></a>justify-content 子元素在主轴上的分布方式</h2><hr>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>space-around</td>
+<td>间隔在元素左右两边</td>
+</tr>
+<tr>
+<td>space-between</td>
+<td>间隔在元素之间，第一个和最后一个对齐容器</td>
+</tr>
+<tr>
+<td>space-evenly</td>
+<td>间隔在元素左右两边，并平均分布</td>
+</tr>
+</tbody></table>
+<h2 id="align-items-子元素在交叉轴上的对齐方式"><a href="#align-items-子元素在交叉轴上的对齐方式" class="headerlink" title="align-items 子元素在交叉轴上的对齐方式"></a>align-items 子元素在交叉轴上的对齐方式</h2><hr>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><span style="width: 150px;display:inline-block;">stretch</span></td>
+<td>（默认值）自动填充高度或宽度，<span style="color: #ce3737">注意项目是否设置了width、height，有时无效是因为样式之间的冲突</span></td>
+</tr>
+<tr>
+<td>baseline</td>
+<td>对齐第一行文字的基线，比如如果每个项目设置了padding-top, baseline 会自动对齐第一行文字的baseline</td>
+</tr>
+</tbody></table>
+<h1 id="项目样式"><a href="#项目样式" class="headerlink" title="项目样式"></a>项目样式</h1><hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/" rel="tag">css</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2022/05/22/JS/JS-%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AD%98%E5%8F%96%E5%99%A8%E5%B1%9E%E6%80%A7/" class="article-nav-link">
+    <strong class="article-nav-caption">前一篇</strong>
+    <div class="article-nav-title">
+      
+      对象的存取器属性
+      
+    </div>
+  </a>
+  
+  
+  <a href="/2022/05/21/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="article-nav-link">
+    <strong class="article-nav-caption">后一篇</strong>
+    <div class="article-nav-title">常用的命令</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>田木夕 &copy; 2022</li>
+      
+        <li></li>
+      
+      <li> - 思考让生活更美好 - </li>
+    </ul>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/myLogoInverted.png" alt="田木夕"></a>
+  </div>
+  
+  
+  <ul class="nav nav-main">
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">首页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags/">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">时间轴</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>

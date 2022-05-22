@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>常用的命令</title>
+    <url>/2022/05/21/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<p>日常经常用到的命令行…</p>
+<span id="more"></span>
+
+<h1 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h1><h1 id="Terminal"><a href="#Terminal" class="headerlink" title="Terminal"></a>Terminal</h1><h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1>]]></content>
+      <categories>
+        <category>环境搭建与操作</category>
+      </categories>
+      <tags>
+        <tag>Env</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo &amp; github 博客搭建</title>
     <url>/2022/05/20/hexo%20&amp;%20github%20%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<p>Hexo 搭建过程中遇到的问题和解决方法…</p>
@@ -31,16 +45,174 @@
 </ul>
 ]]></content>
       <categories>
-        <category>环境搭建</category>
+        <category>环境搭建与操作</category>
       </categories>
       <tags>
         <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
-    <title>word-break &amp; word-wrap</title>
-    <url>/2022/05/20/word-break%20&amp;%20word-wrap/</url>
-    <content><![CDATA[<p>word-break &amp; word-wrap 两者的区别，后者适用性更好一些。</p>
+    <title>对象的存取器属性</title>
+    <url>/2022/05/22/JS/JS-%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AD%98%E5%8F%96%E5%99%A8%E5%B1%9E%E6%80%A7/</url>
+    <content><![CDATA[<blockquote>
+<p>Js 中除了直接定义属性值，还可以通过getter（取值器）、setter（存值器）来存取属性。当属性只有取值器时进行赋值会报错，当属性只有存值器时获取值，是undefined。</p>
+</blockquote>
+<span id="more"></span>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    <span class="attr">firstname</span>: <span class="string">&#x27;San&#x27;</span>,</span><br><span class="line">    <span class="attr">lastname</span>: <span class="string">&quot;Zhang&quot;</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取fullname所执行的操作</span></span><br><span class="line">    <span class="keyword">get</span> <span class="title function_">fullname</span>()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">firstname</span> + <span class="variable language_">this</span>.<span class="property">lastname</span>;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 赋值fullname所执行的操作</span></span><br><span class="line">    <span class="keyword">set</span> <span class="title function_">fullname</span>(<span class="params">value</span>) &#123;</span><br><span class="line">        <span class="comment">// this.fullname = value; 报错，此处调用属性本身会嵌入死循环</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">firstname</span> = value.<span class="title function_">split</span>(<span class="string">&quot; &quot;</span>)[<span class="number">0</span>];</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">lastname</span> = value.<span class="title function_">split</span>(<span class="string">&quot; &quot;</span>)[<span class="number">1</span>];</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="keyword">get</span> <span class="title function_">onlyReadable</span>()&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;我被读取了&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="keyword">set</span> <span class="title function_">onlyWritable</span>(<span class="params">value</span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;我被赋值了:&quot;</span> + value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">fullname</span>);</span><br><span class="line">obj.<span class="property">fullname</span> = <span class="string">&#x27;hello world&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">fullname</span>);</span><br><span class="line">obj.<span class="property">onlyReadable</span> = <span class="string">&#x27;world&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">onlyWritable</span>); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Js</category>
+      </categories>
+      <tags>
+        <tag>Js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>浏览器存储</title>
+    <url>/2022/05/22/Web%E6%8A%80%E6%9C%AF/Web-%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Web技术</category>
+      </categories>
+      <tags>
+        <tag>Js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Flex布局</title>
+    <url>/2022/05/22/Css/Flex%E5%B8%83%E5%B1%80/</url>
+    <content><![CDATA[<blockquote>
+<p>弹性布局分为两块设置，container（容器）和items（项目）。w3c标注和各浏览器标准(比如MDN文档)有差异，比如justify-content属性值w3c没有stretch，只有flex-start | flex-end | center | space-between | space-around（<a href="https://www.w3.org/TR/css-flexbox-1/#justify-content-property%EF%BC%89%E3%80%82">https://www.w3.org/TR/css-flexbox-1/#justify-content-property）。</a></p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="容器样式"><a href="#容器样式" class="headerlink" title="容器样式"></a>容器样式</h1><hr>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><span style="width: 150px;display:inline-block;">display</span></td>
+<td>flex 、 inline-flex</td>
+</tr>
+<tr>
+<td>flex-direction</td>
+<td>row、 column、row-reverse、column-reverse</td>
+</tr>
+<tr>
+<td>justify-content</td>
+<td>center、start、end、left、right、flex-start、flex-end、<br>space-between、space-around、space-evenly</td>
+</tr>
+<tr>
+<td>align-items</td>
+<td>center、start、end、left、right、flex-start、flex-end、stretch、self-start、self-end、baseline<br>项目在交叉轴上的对齐方式</td>
+</tr>
+<tr>
+<td>flex-wrap</td>
+<td>nowrap(默认)不换行、wrap 换行、wrap-reverse 换行且行反向排，最后一行排在第一个。<br><span style="color: #ce3737">(即使设置了项目的宽度，当可分配空间小于设定宽度时，项目会自动被挤压以在一行排列。当设置wrap时，项目设置的width依然有效，排不下时自动换行。)</span></td>
+</tr>
+<tr>
+<td>flex-flow</td>
+<td>flex-direction、flex-wrap的合并简写形式，ex: flex-flow: row nowrap;</td>
+</tr>
+</tbody></table>
+<h2 id="display-flex-inline-flex"><a href="#display-flex-inline-flex" class="headerlink" title="display: flex | inline-flex;"></a>display: flex | inline-flex;</h2><hr>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>flex</td>
+<td>将容器设置成块级弹性盒子。</td>
+</tr>
+<tr>
+<td>inline-flex</td>
+<td>将容器设置成内联弹性盒子。同block、inline-block之间的区别。</td>
+</tr>
+</tbody></table>
+<h2 id="flex-direction：row-column"><a href="#flex-direction：row-column" class="headerlink" title="flex-direction：row | column"></a>flex-direction：row | column</h2><hr>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>row</td>
+<td>主轴方向排列，即x轴。默认为row；</td>
+</tr>
+<tr>
+<td>column</td>
+<td>纵轴方向排列，即y轴。</td>
+</tr>
+<tr>
+<td>row-reverse</td>
+<td>x轴排列，倒序排；</td>
+</tr>
+<tr>
+<td>column-reverse</td>
+<td>y轴排列，倒序排。</td>
+</tr>
+</tbody></table>
+<h2 id="justify-content-子元素在主轴上的分布方式"><a href="#justify-content-子元素在主轴上的分布方式" class="headerlink" title="justify-content 子元素在主轴上的分布方式"></a>justify-content 子元素在主轴上的分布方式</h2><hr>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>space-around</td>
+<td>间隔在元素左右两边</td>
+</tr>
+<tr>
+<td>space-between</td>
+<td>间隔在元素之间，第一个和最后一个对齐容器</td>
+</tr>
+<tr>
+<td>space-evenly</td>
+<td>间隔在元素左右两边，并平均分布</td>
+</tr>
+</tbody></table>
+<h2 id="align-items-子元素在交叉轴上的对齐方式"><a href="#align-items-子元素在交叉轴上的对齐方式" class="headerlink" title="align-items 子元素在交叉轴上的对齐方式"></a>align-items 子元素在交叉轴上的对齐方式</h2><hr>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><span style="width: 150px;display:inline-block;">stretch</span></td>
+<td>（默认值）自动填充高度或宽度，<span style="color: #ce3737">注意项目是否设置了width、height，有时无效是因为样式之间的冲突</span></td>
+</tr>
+<tr>
+<td>baseline</td>
+<td>对齐第一行文字的基线，比如如果每个项目设置了padding-top, baseline 会自动对齐第一行文字的baseline</td>
+</tr>
+</tbody></table>
+<h1 id="项目样式"><a href="#项目样式" class="headerlink" title="项目样式"></a>项目样式</h1><hr>
+]]></content>
+      <categories>
+        <category>css</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>word-break、 word-wrap、white-space 的区别</title>
+    <url>/2022/05/20/Css/word-break%20&amp;%20word-wrap/</url>
+    <content><![CDATA[<p>word-break、word-wrap 针对的是浏览器渲染好的文本进行折行的问题，white-space针对的是对html文本里的空格是否折叠、换行的问题。word-break: break-all | keep-all ,前者会破开一个单词，一般不用，keep-all, 空格、中文标点、连词符会破开，相对友好；</p>
+<p>word-wrap: break-word，同word-break: break-word效果一致，但后者已经deprecated（仅chrome、safari等支持）；</p>
+<p>white-space 针对html里的文本（即源文本）中的空白再浏览器中如何渲染的问题，主要涉及是否折叠、换行。</p>
 <span id="more"></span>
 
 <h1 id="word-break"><a href="#word-break" class="headerlink" title="word-break"></a>word-break</h1><hr>
@@ -81,6 +253,40 @@
 </tr>
 </tbody></table>
 <p><img src="/images/articals/word-wrap.png" alt="Alt"></p>
+<h1 id="white-space"><a href="#white-space" class="headerlink" title="white-space"></a>white-space</h1><hr>
+<p>white-space 针对html里的文本（即源文本）中的空白再浏览器中如何渲染的问题，主要涉及是否折叠、换行。实例可参考MDN：<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/white-space">https://developer.mozilla.org/en-US/docs/Web/CSS/white-space</a></p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>normal</td>
+<td>默认行为，文本内的多个空格会被折叠成一个，换行符也当成空格来处理，并且自动换行</td>
+</tr>
+<tr>
+<td>pre</td>
+<td>preserve，保留的意思。保留所有空格和换行，不自动换行</td>
+</tr>
+<tr>
+<td>nowrap</td>
+<td>wrap是包围，nowrap是不包围，也就是文本不会被包围在标签元素内，空格和换行符处理同normal，但不自动换行</td>
+</tr>
+<tr>
+<td>pre-wrap</td>
+<td>preserve and wrap，保留并包围，保留所有空格和换行，并自动换行</td>
+</tr>
+<tr>
+<td>pre-line</td>
+<td>preserve line，即保留换行，折叠文本内空格为一个，换行保留</td>
+</tr>
+<tr>
+<td>break-spaces</td>
+<td>行为同pre-wrap，除了三种情况…</td>
+</tr>
+</tbody></table>
 ]]></content>
       <categories>
         <category>css</category>
