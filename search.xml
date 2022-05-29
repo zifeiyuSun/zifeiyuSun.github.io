@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>常用的命令</title>
-    <url>/2022/05/21/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<p>日常经常用到的命令行…</p>
-<span id="more"></span>
-
-<h1 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h1><h1 id="Terminal"><a href="#Terminal" class="headerlink" title="Terminal"></a>Terminal</h1><h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1>]]></content>
+    <title>Markdown语法</title>
+    <url>/2022/05/23/Markdown%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<p>to be continued…</p>
+<span id="more"></span>]]></content>
       <categories>
-        <category>环境搭建与操作</category>
+        <category>Web技术</category>
       </categories>
       <tags>
-        <tag>Env</tag>
+        <tag>Web技术</tag>
       </tags>
   </entry>
   <entry>
@@ -29,7 +27,7 @@
 <h2 id="3-常见问题"><a href="#3-常见问题" class="headerlink" title="3. 常见问题"></a>3. 常见问题</h2><hr>
 <ul>
 <li><h3 id="tag、catageries-创建"><a href="#tag、catageries-创建" class="headerlink" title="tag、catageries 创建"></a>tag、catageries 创建</h3></li>
-<li><h3 id="hexo-d之后，代码库更新，但github-io-未更新页面"><a href="#hexo-d之后，代码库更新，但github-io-未更新页面" class="headerlink" title="hexo d之后，代码库更新，但github.io 未更新页面"></a>hexo d之后，代码库更新，但github.io 未更新页面</h3><p>通过debug之后，发现index.html是更新了，但sideBar内容没更新，后通过搜索icon定位到部署文件里没有编译，再次执行hexo g 之后发下有了。这…</p>
+<li><h3 id="hexo-d之后，代码库更新，但github-io-未更新页面"><a href="#hexo-d之后，代码库更新，但github-io-未更新页面" class="headerlink" title="hexo d之后，代码库更新，但github.io 未更新页面"></a>hexo d之后，代码库更新，但github.io 未更新页面</h3><p>通过debug之后，发现index.html是更新了，但sideBar内容没更新，后通过搜索icon定位到部署文件里没有编译，再次执行hexo g 之后发下有了。<br>有时候是github的更新延迟，大概几分钟就有了。</p>
 </li>
 <li><h2 id="md-文件中引入图片"><a href="#md-文件中引入图片" class="headerlink" title="md 文件中引入图片"></a>md 文件中引入图片</h2></li>
 </ul>
@@ -49,32 +47,6 @@
       </categories>
       <tags>
         <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>对象的存取器属性</title>
-    <url>/2022/05/22/JS/JS-%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AD%98%E5%8F%96%E5%99%A8%E5%B1%9E%E6%80%A7/</url>
-    <content><![CDATA[<blockquote>
-<p>Js 中除了直接定义属性值，还可以通过getter（取值器）、setter（存值器）来存取属性。当属性只有取值器时进行赋值会报错，当属性只有存值器时获取值，是undefined。</p>
-</blockquote>
-<span id="more"></span>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    <span class="attr">firstname</span>: <span class="string">&#x27;San&#x27;</span>,</span><br><span class="line">    <span class="attr">lastname</span>: <span class="string">&quot;Zhang&quot;</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取fullname所执行的操作</span></span><br><span class="line">    <span class="keyword">get</span> <span class="title function_">fullname</span>()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">firstname</span> + <span class="variable language_">this</span>.<span class="property">lastname</span>;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 赋值fullname所执行的操作</span></span><br><span class="line">    <span class="keyword">set</span> <span class="title function_">fullname</span>(<span class="params">value</span>) &#123;</span><br><span class="line">        <span class="comment">// this.fullname = value; 报错，此处调用属性本身会嵌入死循环</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">firstname</span> = value.<span class="title function_">split</span>(<span class="string">&quot; &quot;</span>)[<span class="number">0</span>];</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">lastname</span> = value.<span class="title function_">split</span>(<span class="string">&quot; &quot;</span>)[<span class="number">1</span>];</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="keyword">get</span> <span class="title function_">onlyReadable</span>()&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;我被读取了&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="keyword">set</span> <span class="title function_">onlyWritable</span>(<span class="params">value</span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;我被赋值了:&quot;</span> + value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">fullname</span>);</span><br><span class="line">obj.<span class="property">fullname</span> = <span class="string">&#x27;hello world&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">fullname</span>);</span><br><span class="line">obj.<span class="property">onlyReadable</span> = <span class="string">&#x27;world&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">onlyWritable</span>); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Js</category>
-      </categories>
-      <tags>
-        <tag>Js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>浏览器存储</title>
-    <url>/2022/05/22/Web%E6%8A%80%E6%9C%AF/Web-%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Web技术</category>
-      </categories>
-      <tags>
-        <tag>Js</tag>
       </tags>
   </entry>
   <entry>
@@ -117,6 +89,10 @@
 <td>flex-flow</td>
 <td>flex-direction、flex-wrap的合并简写形式，ex: flex-flow: row nowrap;</td>
 </tr>
+<tr>
+<td>主轴：flex-direction定义的方向。</td>
+<td></td>
+</tr>
 </tbody></table>
 <h2 id="display-flex-inline-flex"><a href="#display-flex-inline-flex" class="headerlink" title="display: flex | inline-flex;"></a>display: flex | inline-flex;</h2><hr>
 <table>
@@ -145,11 +121,11 @@
 </thead>
 <tbody><tr>
 <td>row</td>
-<td>主轴方向排列，即x轴。默认为row；</td>
+<td>主轴为x轴。默认为row；</td>
 </tr>
 <tr>
 <td>column</td>
-<td>纵轴方向排列，即y轴。</td>
+<td>主轴为y轴。</td>
 </tr>
 <tr>
 <td>row-reverse</td>
@@ -198,13 +174,110 @@
 <td>对齐第一行文字的基线，比如如果每个项目设置了padding-top, baseline 会自动对齐第一行文字的baseline</td>
 </tr>
 </tbody></table>
+<h2 id="align-content-多行子元素在交叉轴上的对齐方式"><a href="#align-content-多行子元素在交叉轴上的对齐方式" class="headerlink" title="align-content 多行子元素在交叉轴上的对齐方式"></a>align-content 多行子元素在交叉轴上的对齐方式</h2><hr>
 <h1 id="项目样式"><a href="#项目样式" class="headerlink" title="项目样式"></a>项目样式</h1><hr>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><span style="width: 100px;display:inline-block;">order</span></td>
+<td>从小到大定义排列顺序</td>
+</tr>
+<tr>
+<td>flex-grow</td>
+<td>默认为0，即使有空间也不放大。子元素所有flex-grow和为m，当前元素为1，表示<b style="color: #ce3737">占剩余空间</b>的1&#x2F;m;</td>
+</tr>
+<tr>
+<td>flex-shrink</td>
+<td>缩小比例，默认为1，即如果空间不足，该项目将缩小。0表示不缩小。缩小比例同flex-grow.</td>
+</tr>
+<tr>
+<td>flex-basis</td>
+<td>分配多余空间之前，项目占据的主轴空间。浏览器根据这个属性，计算主轴是否有多余空间。</td>
+</tr>
+<tr>
+<td>flex</td>
+<td>flex-grow, flex-shrink 和 flex-basis缩写。默认为：0 1 auto;</td>
+</tr>
+<tr>
+<td>align-self</td>
+<td>允许单个项目有与其他项目不一样的对齐方式，可覆盖容器定义的align-items。</td>
+</tr>
+</tbody></table>
 ]]></content>
       <categories>
         <category>css</category>
       </categories>
       <tags>
         <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用的命令</title>
+    <url>/2022/05/21/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4&amp;%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+    <content><![CDATA[<p>日常经常用到的命令行…</p>
+<span id="more"></span>
+
+<h1 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h1><hr>
+<h1 id="mac"><a href="#mac" class="headerlink" title="mac"></a>mac</h1><hr>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">command + space  <span class="comment">// 快速打开spot，输入应用程序迅速打开</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Terminal"><a href="#Terminal" class="headerlink" title="Terminal"></a>Terminal</h1><hr>
+<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><hr>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">git add filePath <span class="comment">// 添加改动</span></span><br><span class="line">git commit -m <span class="string">&quot;commit text&quot;</span> <span class="comment">// commit 当前修改 </span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h1><hr>
+<blockquote>
+<p>vi 是unix系统最初的编辑器，使用控制台模拟文本编辑窗口，功能强大。 GNU 项目中，程序员在将 Vi 编辑器移植到开源世界的同时，决定对其作一些改进。由于改进后的 Vi 不再是以前 Unix 中的那个原始的 Vi 编辑器了，开发人员也就将它重命名为“Vi improved”，也就是 Vim。Linux&#x2F;macos 发行版都内嵌有 Vim 文本编辑器，macos在&#x2F;usr&#x2F;bin&#x2F;usr&#x2F;local&#x2F;bin目录下。</p>
+</blockquote>
+<p>vim三种模式：1.输入模式；2.命令模式；3.底线命令模式； ~ 表示没内容</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>vim text.txt</td>
+<td>打开文件，没有时自动创建</td>
+</tr>
+<tr>
+<td>i&#x2F;o&#x2F;a</td>
+<td>进入输入模式，除了 Esc ，其它键都可以输入。（i\o\a\I\O\A: 输入的位置和替换效果不一样，感觉没比较记，毕竟键盘很方便了）</td>
+</tr>
+<tr>
+<td>esc</td>
+<td>退出编辑模式，进入命令模式</td>
+</tr>
+<tr>
+<td>:q!</td>
+<td>强制退出，修改过文档但不想保存, &#x3D;&#x3D;&#x3D; ZQ</td>
+</tr>
+<tr>
+<td>:wq</td>
+<td>write and quite，保存并退出, &#x3D;&#x3D;&#x3D; ZZ</td>
+</tr>
+<tr>
+<td>:w</td>
+<td>保存</td>
+</tr>
+<tr>
+<td>:set nu</td>
+<td>number的缩写，显示行号。:set nonu 取消行号。</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>环境搭建与操作</category>
+      </categories>
+      <tags>
+        <tag>Env</tag>
       </tags>
   </entry>
   <entry>
@@ -293,6 +366,116 @@
       </categories>
       <tags>
         <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>水平垂直居中</title>
+    <url>/2022/05/25/Css/%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/</url>
+    <content><![CDATA[<blockquote>
+<p>日常工作中，很多时候需要居中布局，先总结一下常用的居中方法。</p>
+</blockquote>
+<span id="more"></span>
+<h1 id="1-绝对定位"><a href="#1-绝对定位" class="headerlink" title="1. 绝对定位"></a>1. 绝对定位</h1><hr>
+<p>如果不设置高度就会stretch，不适用于高度自适应的场景。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">.<span class="property">parent</span> &#123;</span><br><span class="line">    <span class="attr">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line">.<span class="property">child</span> &#123;</span><br><span class="line">    <span class="attr">position</span>: absolute;</span><br><span class="line">    <span class="attr">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attr">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attr">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attr">bottom</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attr">margin</span>: auto;   </span><br><span class="line">    <span class="attr">height</span>: 100px; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-translate-left、top"><a href="#2-translate-left、top" class="headerlink" title="2. translate + left、top"></a>2. translate + left、top</h1><hr>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">.<span class="property">parent</span> &#123;</span><br><span class="line">    <span class="attr">position</span>: relative;</span><br><span class="line">    <span class="attr">width</span>: 200px;</span><br><span class="line">    <span class="attr">height</span>: 200px;</span><br><span class="line">&#125;</span><br><span class="line">.<span class="property">child</span> &#123;</span><br><span class="line">    <span class="attr">position</span>: absolute;</span><br><span class="line">    <span class="attr">width</span>: 150px;</span><br><span class="line">    <span class="attr">height</span>: 50px;</span><br><span class="line">    background-<span class="attr">color</span>: #ddd;</span><br><span class="line">    <span class="attr">left</span>: <span class="number">50</span>%;</span><br><span class="line">    <span class="attr">top</span>: <span class="number">50</span>%;</span><br><span class="line">    <span class="attr">transform</span>: <span class="title function_">translate</span>(-<span class="number">50</span>%, -<span class="number">50</span>%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>left、top是子元素左边线和上边线到<strong>父元素border</strong>的距离，50%即子元素左上角对齐父元素中心点位置。translate中百分比是指<strong>相对子元素本身</strong>宽高来计算，translate(-50%, -50%)是指在当前位置往左、上分别移动子元素自身宽度、高度的50%。</p>
+<h1 id="3-flex布局"><a href="#3-flex布局" class="headerlink" title="3. flex布局"></a>3. flex布局</h1><hr>
+<p>flex布局效果很强大，可以实现很多以前只能用js来实现的效果。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">.<span class="property">parent</span> &#123;</span><br><span class="line">    <span class="attr">display</span>: flex;</span><br><span class="line">    justify-<span class="attr">conent</span>: center;</span><br><span class="line">    align-<span class="attr">items</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>css</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>对象的存取器属性</title>
+    <url>/2022/05/22/JS/JS-%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AD%98%E5%8F%96%E5%99%A8%E5%B1%9E%E6%80%A7/</url>
+    <content><![CDATA[<blockquote>
+<p>Js 中除了直接定义属性值，还可以通过getter（取值器）、setter（存值器）来存取属性。当属性只有取值器时进行赋值会报错，当属性只有存值器时获取值，是undefined。</p>
+</blockquote>
+<span id="more"></span>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    <span class="attr">firstname</span>: <span class="string">&#x27;San&#x27;</span>,</span><br><span class="line">    <span class="attr">lastname</span>: <span class="string">&quot;Zhang&quot;</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取fullname所执行的操作</span></span><br><span class="line">    <span class="keyword">get</span> <span class="title function_">fullname</span>()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">firstname</span> + <span class="variable language_">this</span>.<span class="property">lastname</span>;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 赋值fullname所执行的操作</span></span><br><span class="line">    <span class="keyword">set</span> <span class="title function_">fullname</span>(<span class="params">value</span>) &#123;</span><br><span class="line">        <span class="comment">// this.fullname = value; 报错，此处调用属性本身会嵌入死循环</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">firstname</span> = value.<span class="title function_">split</span>(<span class="string">&quot; &quot;</span>)[<span class="number">0</span>];</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">lastname</span> = value.<span class="title function_">split</span>(<span class="string">&quot; &quot;</span>)[<span class="number">1</span>];</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="keyword">get</span> <span class="title function_">onlyReadable</span>()&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;我被读取了&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="keyword">set</span> <span class="title function_">onlyWritable</span>(<span class="params">value</span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;我被赋值了:&quot;</span> + value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">fullname</span>);</span><br><span class="line">obj.<span class="property">fullname</span> = <span class="string">&#x27;hello world&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">fullname</span>);</span><br><span class="line">obj.<span class="property">onlyReadable</span> = <span class="string">&#x27;world&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">onlyWritable</span>); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Js</category>
+      </categories>
+      <tags>
+        <tag>Js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>坐标、宽高、left&amp;top总结</title>
+    <url>/2022/05/22/JS/%E5%9D%90%E6%A0%87&amp;%E5%AE%BD%E9%AB%98&amp;left&amp;&amp;Top%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<blockquote>
+<p>现在虽然很少处理dom，但有些时候还是会遇到，现总结一下备查。</p>
+</blockquote>
+<span id="more"></span>
+<h1 id="各种坐标值的区别"><a href="#各种坐标值的区别" class="headerlink" title="各种坐标值的区别"></a>各种坐标值的区别</h1><hr>
+<table>
+    <tbody>
+        <tr>
+            <td></td>
+            <td>key</td>
+            <td>描述</td>
+        </tr>
+        <tr>
+            <td rowspan="3" width="160">相对于固定点</td>
+            <td>pageX、pageY</td>
+            <td> <b>相对于整个document文档的左上角</b>(relative to the whole document), 文档如有滚动条，也是从滚出去的顶部开始算。</td>
+        </tr>
+        <tr>
+            <td>clientX、clientY</td>
+            <td> <b>相对于浏览器可视区(viewPort)的左上角，不受滚动条影响。</b> (Relative to the upper left edge of the content area (the viewport) of the browser window. This point does not move even if the user moves a scrollbar from within the browser.)</td>
+        </tr>
+        <tr>
+            <td>screenX、screenY</td>
+            <td> <b>相对于物理屏幕的左上角</b>（Relative to the top left of the physical screen/monitor）</td>
+        </tr>
+        <tr>
+            <td>相对于不固定的点</td>
+            <td>offsetX、offsetY</td>
+            <td> <b>相对于目标元素(即event.target当前event发生的元素，currentTarget：当前事件绑定的元素)</b> （relative to the target element）</td>
+        </tr>
+    </tbody>
+</table>
+
+<h1 id="各种width、height的区别"><a href="#各种width、height的区别" class="headerlink" title="各种width、height的区别"></a>各种width、height的区别</h1><hr>
+<h1 id="各种left、top的区别"><a href="#各种left、top的区别" class="headerlink" title="各种left、top的区别"></a>各种left、top的区别</h1><hr>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>offset()</td>
+<td>jquery方法，offset().left、offset().top，元素左上角(包括content+padding+border)相对于整个document文档</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>Js</category>
+      </categories>
+      <tags>
+        <tag>Js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>浏览器存储</title>
+    <url>/2022/05/22/Web%E6%8A%80%E6%9C%AF/Web-%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Web技术</category>
+      </categories>
+      <tags>
+        <tag>Js</tag>
       </tags>
   </entry>
 </search>

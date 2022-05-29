@@ -111,6 +111,10 @@
 <td>flex-flow</td>
 <td>flex-direction、flex-wrap的合并简写形式，ex: flex-flow: row nowrap;</td>
 </tr>
+<tr>
+<td>主轴：flex-direction定义的方向。</td>
+<td></td>
+</tr>
 </tbody></table>
 <h2 id="display-flex-inline-flex"><a href="#display-flex-inline-flex" class="headerlink" title="display: flex | inline-flex;"></a>display: flex | inline-flex;</h2><hr>
 <table>
@@ -139,11 +143,11 @@
 </thead>
 <tbody><tr>
 <td>row</td>
-<td>主轴方向排列，即x轴。默认为row；</td>
+<td>主轴为x轴。默认为row；</td>
 </tr>
 <tr>
 <td>column</td>
-<td>纵轴方向排列，即y轴。</td>
+<td>主轴为y轴。</td>
 </tr>
 <tr>
 <td>row-reverse</td>
@@ -192,7 +196,40 @@
 <td>对齐第一行文字的基线，比如如果每个项目设置了padding-top, baseline 会自动对齐第一行文字的baseline</td>
 </tr>
 </tbody></table>
+<h2 id="align-content-多行子元素在交叉轴上的对齐方式"><a href="#align-content-多行子元素在交叉轴上的对齐方式" class="headerlink" title="align-content 多行子元素在交叉轴上的对齐方式"></a>align-content 多行子元素在交叉轴上的对齐方式</h2><hr>
 <h1 id="项目样式"><a href="#项目样式" class="headerlink" title="项目样式"></a>项目样式</h1><hr>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><span style="width: 100px;display:inline-block;">order</span></td>
+<td>从小到大定义排列顺序</td>
+</tr>
+<tr>
+<td>flex-grow</td>
+<td>默认为0，即使有空间也不放大。子元素所有flex-grow和为m，当前元素为1，表示<b style="color: #ce3737">占剩余空间</b>的1&#x2F;m;</td>
+</tr>
+<tr>
+<td>flex-shrink</td>
+<td>缩小比例，默认为1，即如果空间不足，该项目将缩小。0表示不缩小。缩小比例同flex-grow.</td>
+</tr>
+<tr>
+<td>flex-basis</td>
+<td>分配多余空间之前，项目占据的主轴空间。浏览器根据这个属性，计算主轴是否有多余空间。</td>
+</tr>
+<tr>
+<td>flex</td>
+<td>flex-grow, flex-shrink 和 flex-basis缩写。默认为：0 1 auto;</td>
+</tr>
+<tr>
+<td>align-self</td>
+<td>允许单个项目有与其他项目不一样的对齐方式，可覆盖容器定义的align-items。</td>
+</tr>
+</tbody></table>
 
       
     </div>
@@ -208,17 +245,17 @@
   
 <nav class="article-nav">
   
-  <a href="/2022/05/22/JS/JS-%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AD%98%E5%8F%96%E5%99%A8%E5%B1%9E%E6%80%A7/" class="article-nav-link">
+  <a href="/2022/05/22/JS/%E5%9D%90%E6%A0%87&%E5%AE%BD%E9%AB%98&left&&Top%E6%80%BB%E7%BB%93/" class="article-nav-link">
     <strong class="article-nav-caption">前一篇</strong>
     <div class="article-nav-title">
       
-      对象的存取器属性
+      坐标、宽高、left&amp;top总结
       
     </div>
   </a>
   
   
-  <a href="/2022/05/21/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="article-nav-link">
+  <a href="/2022/05/21/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4&%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="article-nav-link">
     <strong class="article-nav-caption">后一篇</strong>
     <div class="article-nav-title">常用的命令</div>
   </a>

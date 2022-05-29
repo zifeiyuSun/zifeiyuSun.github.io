@@ -34,7 +34,7 @@
 <body>
   <main class="content">
     <section class="outer">
-  <article id="post-常用命令" class="article article-type-post" itemscope
+  <article id="post-常用命令&amp;快捷键" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -53,7 +53,7 @@
 
     
     <div class="article-meta">
-      <a href="/2022/05/21/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="article-date">
+      <a href="/2022/05/21/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4&%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="article-date">
   <time datetime="2022-05-21T14:09:16.000Z" itemprop="datePublished">2022-05-21</time>
 </a>
       
@@ -77,7 +77,57 @@
       <p>日常经常用到的命令行…</p>
 <span id="more"></span>
 
-<h1 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h1><h1 id="Terminal"><a href="#Terminal" class="headerlink" title="Terminal"></a>Terminal</h1><h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1>
+<h1 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h1><hr>
+<h1 id="mac"><a href="#mac" class="headerlink" title="mac"></a>mac</h1><hr>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command + space  <span class="comment">// 快速打开spot，输入应用程序迅速打开</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Terminal"><a href="#Terminal" class="headerlink" title="Terminal"></a>Terminal</h1><hr>
+<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><hr>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add filePath <span class="comment">// 添加改动</span></span><br><span class="line">git commit -m <span class="string">&quot;commit text&quot;</span> <span class="comment">// commit 当前修改 </span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h1><hr>
+<blockquote>
+<p>vi 是unix系统最初的编辑器，使用控制台模拟文本编辑窗口，功能强大。 GNU 项目中，程序员在将 Vi 编辑器移植到开源世界的同时，决定对其作一些改进。由于改进后的 Vi 不再是以前 Unix 中的那个原始的 Vi 编辑器了，开发人员也就将它重命名为“Vi improved”，也就是 Vim。Linux&#x2F;macos 发行版都内嵌有 Vim 文本编辑器，macos在&#x2F;usr&#x2F;bin&#x2F;usr&#x2F;local&#x2F;bin目录下。</p>
+</blockquote>
+<p>vim三种模式：1.输入模式；2.命令模式；3.底线命令模式； ~ 表示没内容</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>vim text.txt</td>
+<td>打开文件，没有时自动创建</td>
+</tr>
+<tr>
+<td>i&#x2F;o&#x2F;a</td>
+<td>进入输入模式，除了 Esc ，其它键都可以输入。（i\o\a\I\O\A: 输入的位置和替换效果不一样，感觉没比较记，毕竟键盘很方便了）</td>
+</tr>
+<tr>
+<td>esc</td>
+<td>退出编辑模式，进入命令模式</td>
+</tr>
+<tr>
+<td>:q!</td>
+<td>强制退出，修改过文档但不想保存, &#x3D;&#x3D;&#x3D; ZQ</td>
+</tr>
+<tr>
+<td>:wq</td>
+<td>write and quite，保存并退出, &#x3D;&#x3D;&#x3D; ZZ</td>
+</tr>
+<tr>
+<td>:w</td>
+<td>保存</td>
+</tr>
+<tr>
+<td>:set nu</td>
+<td>number的缩写，显示行号。:set nonu 取消行号。</td>
+</tr>
+</tbody></table>
+
       
     </div>
     <footer class="article-footer">
