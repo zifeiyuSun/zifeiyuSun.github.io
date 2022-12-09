@@ -79,13 +79,57 @@
 
 <h1 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h1><hr>
 <h1 id="mac"><a href="#mac" class="headerlink" title="mac"></a>mac</h1><hr>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command + space  <span class="comment">// 快速打开spot，输入应用程序迅速打开</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">command + space  <span class="comment">// 快速打开spotlight，输入应用程序迅速打开</span></span><br><span class="line">command + option + c <span class="comment">// 快速复制文件地址</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 <h1 id="Terminal"><a href="#Terminal" class="headerlink" title="Terminal"></a>Terminal</h1><hr>
-<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><hr>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add filePath <span class="comment">// 添加改动</span></span><br><span class="line">git commit -m <span class="string">&quot;commit text&quot;</span> <span class="comment">// commit 当前修改 </span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">open -e  ~<span class="regexp">/.bash_profile  /</span><span class="regexp">/ 打开环境变量文件</span></span><br><span class="line"><span class="regexp">source ~/</span>.<span class="property">bash_profile</span> <span class="comment">//执行当前更改，当前shell下执行eport path方式只是临时有效，关掉即销毁。</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><hr>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git add filePath</td>
+<td>添加改动</td>
+</tr>
+<tr>
+<td>git commit -m “commit text”</td>
+<td>commit 当前修改</td>
+</tr>
+<tr>
+<td>git merge dev</td>
+<td>把dev分支合并到当前分支</td>
+</tr>
+<tr>
+<td>git reset –soft(mixed、hard) HEAD^</td>
+<td>上一个版本 &#x3D;&#x3D;&#x3D; git reset –soft HEAD<del>1 （HEAD</del>2撤销两个commit）</td>
+</tr>
+<tr>
+<td>git branch -r</td>
+<td>查看所有远程分支</td>
+</tr>
+<tr>
+<td>git checkout -b test origin&#x2F;test</td>
+<td>在本地创建以线上test分支为基础的分支</td>
+</tr>
+<tr>
+<td>git checkout -b dev</td>
+<td>创建本地分支，然后切换到dev分支，等同于：git branch dev; git checkout dev;</td>
+</tr>
+<tr>
+<td>git push origin dev:dev</td>
+<td>推送本地的dev(冒号前面的)分支到远程origin的dev(冒号后面的)分支(没有会自动创建)</td>
+</tr>
+<tr>
+<td>git checkout master</td>
+<td>把当前的工作内容合并到master分支上：</td>
+</tr>
+</tbody></table>
 <h1 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h1><hr>
 <blockquote>
 <p>vi 是unix系统最初的编辑器，使用控制台模拟文本编辑窗口，功能强大。 GNU 项目中，程序员在将 Vi 编辑器移植到开源世界的同时，决定对其作一些改进。由于改进后的 Vi 不再是以前 Unix 中的那个原始的 Vi 编辑器了，开发人员也就将它重命名为“Vi improved”，也就是 Vim。Linux&#x2F;macos 发行版都内嵌有 Vim 文本编辑器，macos在&#x2F;usr&#x2F;bin&#x2F;usr&#x2F;local&#x2F;bin目录下。</p>
@@ -127,6 +171,7 @@
 <td>number的缩写，显示行号。:set nonu 取消行号。</td>
 </tr>
 </tbody></table>
+<h1 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h1><p>命令 | 描述<br> npm cache clean –force | 清除npm 安装缓存</p>
 
       
     </div>

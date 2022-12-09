@@ -10,7 +10,7 @@
   <meta name="description" content="以此记录日常的工作和学习">
   
   <title>
-    坐标、宽高、left&amp;top总结 |
+    常用方法 |
     
     田木夕
   </title>
@@ -34,7 +34,7 @@
 <body>
   <main class="content">
     <section class="outer">
-  <article id="post-JS/坐标&amp;宽高&amp;left&amp;&amp;Top总结" class="article article-type-post" itemscope
+  <article id="post-JS/RXJS/常用方法" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -43,7 +43,7 @@
       
 
 <h1 class="article-title" itemprop="name">
-  坐标、宽高、left&amp;top总结
+  常用方法
 </h1>
 
 
@@ -53,8 +53,8 @@
 
     
     <div class="article-meta">
-      <a href="/2022/05/22/JS/%E5%9D%90%E6%A0%87&%E5%AE%BD%E9%AB%98&left&&Top%E6%80%BB%E7%BB%93/" class="article-date">
-  <time datetime="2022-05-22T06:08:51.000Z" itemprop="datePublished">2022-05-22</time>
+      <a href="/2022/06/10/JS/RXJS/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" class="article-date">
+  <time datetime="2022-06-10T03:14:00.000Z" itemprop="datePublished">2022-06-10</time>
 </a>
       
 <div class="article-category">
@@ -75,76 +75,35 @@
       
       
       <blockquote>
-<p>现在虽然很少处理dom，但有些时候还是会遇到，现总结一下备查。</p>
+<p>记录rxjs的方法</p>
 </blockquote>
 <span id="more"></span>
-<h1 id="各种坐标值的区别"><a href="#各种坐标值的区别" class="headerlink" title="各种坐标值的区别"></a>各种坐标值的区别</h1><hr>
-<table>
-    <tbody>
-        <tr>
-            <td></td>
-            <td>key</td>
-            <td>描述</td>
-        </tr>
-        <tr>
-            <td rowspan="3" width="160">相对于固定点</td>
-            <td>pageX、pageY</td>
-            <td> <b>相对于整个document文档的左上角</b>(relative to the whole document), 文档如有滚动条，也是从滚出去的顶部开始算。</td>
-        </tr>
-        <tr>
-            <td>clientX、clientY</td>
-            <td> <b>相对于浏览器可视区(viewPort)的左上角，不受滚动条影响。</b> (Relative to the upper left edge of the content area (the viewport) of the browser window. This point does not move even if the user moves a scrollbar from within the browser.)</td>
-        </tr>
-        <tr>
-            <td>screenX、screenY</td>
-            <td> <b>相对于物理屏幕的左上角</b>（Relative to the top left of the physical screen/monitor）</td>
-        </tr>
-        <tr>
-            <td>相对于不固定的点</td>
-            <td>offsetX、offsetY</td>
-            <td> <b>相对于目标元素(即event.target当前event发生的元素，currentTarget：当前事件绑定的元素)</b> （relative to the target element）</td>
-        </tr>
-    </tbody>
-</table>
 
-<h1 id="各种width、height的区别"><a href="#各种width、height的区别" class="headerlink" title="各种width、height的区别"></a>各种width、height的区别</h1><hr>
-<p>设置了box-sizing: border-box，计算规则不变。比如：$(‘.box’).width() 是获取content的宽度。设置之后<b style="color: #ce3737">依然是获取计算出来的content的width</b></p>
+<h1 id="throttleTime-、debounceTime"><a href="#throttleTime-、debounceTime" class="headerlink" title="throttleTime()、debounceTime()"></a>throttleTime()、debounceTime()</h1><hr>
+<p>throttleTime(x):</p>
+<ol>
+<li>初始定时器不计时</li>
+<li>第一个流产生，就开始订阅并计时</li>
+<li>x时间内不抛出新流，x时间到计时停止，重复123</li>
+</ol>
+<p>如果参数只有时间，会有最后一次x时间过去后，新的x时间内的流会被丢掉，所以这种配置只适用于最后一次流影响不明显的场景，比如鼠标移动…</p>
+<p>throttleTime(5000, asyncScheduler, { leading: true, trailing: true })<br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/57059666/how-does-throttletime-operators-config-parameter-work-throttleconfig">https://stackoverflow.com/questions/57059666/how-does-throttletime-operators-config-parameter-work-throttleconfig</a></p>
+<p>debounceTime(x):</p>
+<ol>
+<li>持续计时，跟踪流</li>
+<li>每个x时间，就抛出最新的流</li>
+</ol>
+<p>所以，如果还没到下一个x时间就结束了，可能会丢掉，同时时持续计时，会造成不必要的</p>
 <table>
 <thead>
 <tr>
-<th>值</th>
+<th>方法</th>
 <th>描述</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>width()</td>
-<td>jquery方法，仅content的宽度。</td>
-</tr>
-<tr>
-<td>clientWidth</td>
-<td>content + padding</td>
-</tr>
-<tr>
-<td>offsetWidth</td>
-<td>content + padding + border</td>
-</tr>
-</tbody></table>
-<h1 id="各种left、top的区别"><a href="#各种left、top的区别" class="headerlink" title="各种left、top的区别"></a>各种left、top的区别</h1><hr>
-<p>当元素通过margin或定位或滚动条移出相对元素的最上边和最左边时，<b style="color: #ce3737">返回负值</b>。</p>
-<table>
-<thead>
-<tr>
-<th>值</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>offset()</td>
-<td>jquery方法，offset().left、offset().top，元素左上角(包括content+padding+border)相对于整个document文档</td>
-</tr>
-<tr>
-<td>offsetLeft</td>
-<td>元素左上角相对于最近的有定位的父元素的偏移量。相对于谁定位就是相对谁的偏移。</td>
+<td>timer(1000, 3000)</td>
+<td>第一个参数表示第一个值多久后抛出，第二个参数表示第一个值之后的值多久后抛出，所以，如果没有第二个参数，相当于timeout(()&#x3D;&gt;{}, 1000);</td>
 </tr>
 </tbody></table>
 
@@ -152,7 +111,7 @@
     </div>
     <footer class="article-footer">
       
-<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Js/" rel="tag">Js</a></li></ul>
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rxjs/" rel="tag">rxjs</a></li></ul>
 
     </footer>
 
@@ -162,19 +121,19 @@
   
 <nav class="article-nav">
   
-  <a href="/2022/05/22/JS/JS-%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AD%98%E5%8F%96%E5%99%A8%E5%B1%9E%E6%80%A7/" class="article-nav-link">
+  <a href="/2022/06/15/JS/%E5%8A%A8%E6%80%81%E5%BC%95%E5%85%A5js%E6%96%87%E4%BB%B6/" class="article-nav-link">
     <strong class="article-nav-caption">前一篇</strong>
     <div class="article-nav-title">
       
-      对象的存取器属性
+      动态引入js文件
       
     </div>
   </a>
   
   
-  <a href="/2022/05/22/JS/RXJS/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/" class="article-nav-link">
+  <a href="/2022/06/07/Angular/base-href%E5%92%8Cdeploy-url/" class="article-nav-link">
     <strong class="article-nav-caption">后一篇</strong>
-    <div class="article-nav-title">核心概念</div>
+    <div class="article-nav-title">base-href和deploy-url</div>
   </a>
   
 </nav>

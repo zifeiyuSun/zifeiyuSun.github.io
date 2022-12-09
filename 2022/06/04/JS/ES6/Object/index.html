@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="以此记录日常的工作和学习">
+  
+  <title>
+    对象相关操作 |
+    
+    田木夕
+  </title>
+  <!-- Icon -->
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-JS/ES6/Object" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  对象相关操作
+</h1>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2022/06/04/JS/ES6/Object/" class="article-date">
+  <time datetime="2022-06-04T08:51:51.000Z" itemprop="datePublished">2022-06-04</time>
+</a>
+      
+<div class="article-category">
+  <a class="article-category-link" href="/categories/js/">Js</a>
+</div>
+
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+      <blockquote>
+<p>工欲善其事必先利其器。</p>
+</blockquote>
+<span id="more"></span>
+<h1 id="1-属性和方法的简洁写法"><a href="#1-属性和方法的简洁写法" class="headerlink" title="1. 属性和方法的简洁写法"></a>1. 属性和方法的简洁写法</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">&#x27;sun&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> age = <span class="number">18</span>;</span><br><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">    name, <span class="comment">// 属性名就是变量名，属性值就是变量值</span></span><br><span class="line">    age,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 等同于：hello: function...</span></span><br><span class="line">    <span class="title function_">hello</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span> + <span class="variable language_">this</span>.<span class="property">age</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;; </span><br></pre></td></tr></table></figure>
+
+<h1 id="2-属性名表达式"><a href="#2-属性名表达式" class="headerlink" title="2.属性名表达式"></a>2.属性名表达式</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> key = <span class="string">&#x27;name&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">    [key]: <span class="string">&#x27;sun&#x27;</span>,</span><br><span class="line">    [<span class="string">&#x27;a&#x27;</span>+<span class="string">&#x27;ge&#x27;</span>]: <span class="number">18</span>,</span><br><span class="line">    [<span class="string">&#x27;hel&#x27;</span> + <span class="string">&#x27;lo&#x27;</span>]()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">name</span> + <span class="variable language_">this</span>.<span class="property">age</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-属性的遍历"><a href="#3-属性的遍历" class="headerlink" title="3.属性的遍历"></a>3.属性的遍历</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;<span class="attr">name</span>: <span class="string">&#x27;sun&#x27;</span>&#125;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">getOwnPropertyDescriptor</span>(person, <span class="string">&#x27;name&#x27;</span>);</span><br><span class="line"><span class="comment">/*&#123;</span></span><br><span class="line"><span class="comment"> value: ‘sun’,</span></span><br><span class="line"><span class="comment"> writable: true,</span></span><br><span class="line"><span class="comment"> enumerable: true,</span></span><br><span class="line"><span class="comment"> configurable: true</span></span><br><span class="line"><span class="comment">&#125;*/</span></span><br></pre></td></tr></table></figure>
+
+<p>for…in: 会枚举自身和继承的属性<br>Object.keys: 只返回对象自身可枚举的属性<br>JSON.stringigy: 只串行自身可枚举属性<br>Object.assign: 只拷贝自身可枚举属性</p>
+<h1 id="4-扩展操作符"><a href="#4-扩展操作符" class="headerlink" title="4.扩展操作符"></a>4.扩展操作符</h1><blockquote>
+<p>函数调用&#x2F;数组构造时，将数组表达式或者 string 在语法层面展开；还可以在构造字面量对象时，将对象表达式按 key-value 的方式展开</p>
+</blockquote>
+<p>解构赋值的拷贝是浅拷贝。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;...x&#125; = person;</span><br><span class="line">person.<span class="property">name</span> = <span class="string">&#x27;sun1&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(x.<span class="property">name</span>); <span class="comment">// sun1</span></span><br></pre></td></tr></table></figure>
+<p>后面的会覆盖前面的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = &#123; <span class="attr">foo</span>: <span class="string">&#x27;bar&#x27;</span>, <span class="attr">x</span>: <span class="number">42</span> &#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123; <span class="attr">foo</span>: <span class="string">&#x27;baz&#x27;</span>, <span class="attr">x</span>: <span class="number">13</span> &#125;;</span><br><span class="line"><span class="keyword">var</span> mergedObj = &#123; ...obj1, ...obj2 &#125;; </span><br><span class="line"><span class="comment">// &#123;foo: &#x27;baz&#x27;, x: 13&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="5-对象的合并"><a href="#5-对象的合并" class="headerlink" title="5.对象的合并"></a>5.对象的合并</h1><p>将source1、source2对象复制到target上，同名属性后面的会覆盖前面的。只拷贝自身属性（不拷贝继承属性及不可枚举属性）。<br>如果source对象下有属性为对象，修改source属性对象值也会修改target的值，为<b style="color: #ce3737">浅拷贝</b>。<br>Object.assign(target, source1, source2)</p>
+<p>如果处理的是数组，会将数组当做对象处理，相同index会覆盖前面的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Object</span>.<span class="title function_">assign</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>]); <span class="comment">// [4, 5, 3]</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Js/" rel="tag">Js</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2022/06/07/Angular/base-href%E5%92%8Cdeploy-url/" class="article-nav-link">
+    <strong class="article-nav-caption">前一篇</strong>
+    <div class="article-nav-title">
+      
+      base-href和deploy-url
+      
+    </div>
+  </a>
+  
+  
+  <a href="/2022/05/31/JS/ES6/Array/" class="article-nav-link">
+    <strong class="article-nav-caption">后一篇</strong>
+    <div class="article-nav-title">数组相关操作</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>田木夕 &copy; 2022</li>
+      
+        <li></li>
+      
+      <li> - 思考让生活更美好 - </li>
+    </ul>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/myLogoInverted.png" alt="田木夕"></a>
+  </div>
+  
+  
+  <ul class="nav nav-main">
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">首页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags/">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">时间轴</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>

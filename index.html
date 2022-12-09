@@ -69,6 +69,505 @@
     <h1 class="page-type-title"></h1>
     
     
+    <article id="post-JS/contentEditable" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/08/04/JS/contentEditable/">元素的contentEditable</a>
+</h2>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2022/08/04/JS/contentEditable/" class="article-date">
+  <time datetime="2022-08-04T07:48:00.000Z" itemprop="datePublished">2022-08-04</time>
+</a>
+      
+<div class="article-category">
+  <a class="article-category-link" href="/categories/js/">Js</a>
+</div>
+
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+        
+      
+      
+      <blockquote>
+<p>Js 中除了直接定义属性值，还可以通过getter（取值器）、setter（存值器）来存取属性。当属性只有取值器时进行赋值会报错，当属性只有存值器时获取值，是undefined。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Js/" rel="tag">Js</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+    
+    <article id="post-JS/preventDefault和stopPropagation" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/07/07/JS/preventDefault%E5%92%8CstopPropagation/">preventDefault和stopPropagation</a>
+</h2>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2022/07/07/JS/preventDefault%E5%92%8CstopPropagation/" class="article-date">
+  <time datetime="2022-07-07T06:31:10.000Z" itemprop="datePublished">2022-07-07</time>
+</a>
+      
+<div class="article-category">
+  <a class="article-category-link" href="/categories/js/">Js</a>
+</div>
+
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+        
+      
+      
+      
+      
+    </div>
+    <footer class="article-footer">
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Js/" rel="tag">Js</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+    
+    <article id="post-JS/动态引入js文件" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/06/15/JS/%E5%8A%A8%E6%80%81%E5%BC%95%E5%85%A5js%E6%96%87%E4%BB%B6/">动态引入js文件</a>
+</h2>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2022/06/15/JS/%E5%8A%A8%E6%80%81%E5%BC%95%E5%85%A5js%E6%96%87%E4%BB%B6/" class="article-date">
+  <time datetime="2022-06-15T09:18:50.000Z" itemprop="datePublished">2022-06-15</time>
+</a>
+      
+<div class="article-category">
+  <a class="article-category-link" href="/categories/js/">Js</a>
+</div>
+
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+        
+      
+      
+      <p>通过以下方法创建的js文件，默认是异步加载的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cssUrls = [<span class="string">&quot;template/css/basic.css&quot;</span>, <span class="string">&quot;template/css/waitPage.css&quot;</span>];</span><br><span class="line"><span class="keyword">const</span> jsUrls = [<span class="string">&quot;RecordRTC.js&quot;</span>, <span class="string">&quot;client/assets/js/for_skin/recordUtil.js&quot;</span>, <span class="string">&quot;client/assets/js/for_skin/joyBridge.js&quot;</span>, <span class="string">&quot;template/js/jquery-1.10.2.min.js&quot;</span>, <span class="string">&quot;template/js/main.js&quot;</span>, <span class="string">&quot;template/js/singleSpeak.js&quot;</span>];</span><br><span class="line">cssUrls.<span class="title function_">forEach</span>(<span class="keyword">function</span>(<span class="params">cssUrl</span>)&#123;</span><br><span class="line">    <span class="title function_">loadCss</span>(cssUrl);</span><br><span class="line">&#125;)</span><br><span class="line">jsUrls.<span class="title function_">forEach</span>(<span class="keyword">function</span>(<span class="params">jsUrl</span>)&#123;</span><br><span class="line">    <span class="title function_">loadJs</span>(jsUrl);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加载外部css文件</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">loadCss</span>(<span class="params">url</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> baseUrl = <span class="title function_">getBaseUrl</span>(url);</span><br><span class="line">    <span class="keyword">var</span> head = <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&#x27;head&#x27;</span>)[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">var</span> link = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;link&#x27;</span>);</span><br><span class="line">    link.<span class="property">type</span>=<span class="string">&#x27;text/css&#x27;</span>;</span><br><span class="line">    link.<span class="property">rel</span> = <span class="string">&#x27;stylesheet&#x27;</span>;</span><br><span class="line">    link.<span class="property">href</span> = baseUrl + url;</span><br><span class="line">    head.<span class="title function_">appendChild</span>(link);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加载外部js文件</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">loadJs</span>(<span class="params">url</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> baseUrl = <span class="title function_">getBaseUrl</span>(url);</span><br><span class="line">    <span class="keyword">var</span> jsNodes = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#wrap-js-nodes&#x27;</span>);</span><br><span class="line">    <span class="keyword">var</span> script = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;script&#x27;</span>);</span><br><span class="line">    script.<span class="property">type</span>=<span class="string">&#x27;text/javascript&#x27;</span>;</span><br><span class="line">    script.<span class="property">src</span> = baseUrl + url; </span><br><span class="line">    script.<span class="property">async</span> = <span class="literal">false</span>; <span class="comment">// 强制同步加载</span></span><br><span class="line">    <span class="comment">// 监听script是否load成功，加载失败reload</span></span><br><span class="line"></span><br><span class="line">    jsNodes.<span class="title function_">appendChild</span>(script);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Js/" rel="tag">Js</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+    
+    <article id="post-JS/RXJS/常用方法" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/06/10/JS/RXJS/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">常用方法</a>
+</h2>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2022/06/10/JS/RXJS/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" class="article-date">
+  <time datetime="2022-06-10T03:14:00.000Z" itemprop="datePublished">2022-06-10</time>
+</a>
+      
+<div class="article-category">
+  <a class="article-category-link" href="/categories/js/">Js</a>
+</div>
+
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+        
+      
+      
+        <blockquote>
+<p>记录rxjs的方法</p>
+</blockquote>
+        
+          <p>
+            <a class="article-more-link" href="/2022/06/10/JS/RXJS/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/">
+              阅读更多...
+            </a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rxjs/" rel="tag">rxjs</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+    
+    <article id="post-Angular/base-href和deploy-url" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/06/07/Angular/base-href%E5%92%8Cdeploy-url/">base-href和deploy-url</a>
+</h2>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2022/06/07/Angular/base-href%E5%92%8Cdeploy-url/" class="article-date">
+  <time datetime="2022-06-07T13:31:20.000Z" itemprop="datePublished">2022-06-07</time>
+</a>
+      
+<div class="article-category">
+  <a class="article-category-link" href="/categories/angular/">angular</a>
+</div>
+
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+        
+      
+      
+        <p>base-href 是</p>
+        
+          <p>
+            <a class="article-more-link" href="/2022/06/07/Angular/base-href%E5%92%8Cdeploy-url/">
+              阅读更多...
+            </a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/env/" rel="tag">Env</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+    
+    <article id="post-JS/ES6/Object" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/06/04/JS/ES6/Object/">对象相关操作</a>
+</h2>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2022/06/04/JS/ES6/Object/" class="article-date">
+  <time datetime="2022-06-04T08:51:51.000Z" itemprop="datePublished">2022-06-04</time>
+</a>
+      
+<div class="article-category">
+  <a class="article-category-link" href="/categories/js/">Js</a>
+</div>
+
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+        
+      
+      
+        <blockquote>
+<p>工欲善其事必先利其器。</p>
+</blockquote>
+        
+          <p>
+            <a class="article-more-link" href="/2022/06/04/JS/ES6/Object/">
+              阅读更多...
+            </a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Js/" rel="tag">Js</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+    
+    <article id="post-JS/ES6/Array" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/05/31/JS/ES6/Array/">数组相关操作</a>
+</h2>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2022/05/31/JS/ES6/Array/" class="article-date">
+  <time datetime="2022-05-31T09:08:51.000Z" itemprop="datePublished">2022-05-31</time>
+</a>
+      
+<div class="article-category">
+  <a class="article-category-link" href="/categories/js/">Js</a>
+</div>
+
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+        
+      
+      
+        <blockquote>
+<p>工欲善其事必先利其器。</p>
+</blockquote>
+        
+          <p>
+            <a class="article-more-link" href="/2022/05/31/JS/ES6/Array/">
+              阅读更多...
+            </a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Js/" rel="tag">Js</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+    
+    <article id="post-JS/ES6/Set和Map" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+
+    
+    <div class="article-meta">
+      <a href="/2022/05/31/JS/ES6/Set%E5%92%8CMap/" class="article-date">
+  <time datetime="2022-05-31T02:33:54.940Z" itemprop="datePublished">2022-05-31</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+        
+      
+      
+      
+      
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+    
+    <article id="post-JS/ES6/Iterator" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+
+    
+    <div class="article-meta">
+      <a href="/2022/05/31/JS/ES6/Iterator/" class="article-date">
+  <time datetime="2022-05-31T02:20:37.444Z" itemprop="datePublished">2022-05-31</time>
+</a>
+      
+    </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+        
+      
+      
+      
+      
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+    
     <article id="post-Css/水平垂直居中" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -133,506 +632,13 @@
 
 </article>
     
-    <article id="post-Markdown语法" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-      
-
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/05/23/Markdown%E8%AF%AD%E6%B3%95/">Markdown语法</a>
-</h2>
-
-
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2022/05/23/Markdown%E8%AF%AD%E6%B3%95/" class="article-date">
-  <time datetime="2022-05-23T03:17:28.047Z" itemprop="datePublished">2022-05-23</time>
-</a>
-      
-<div class="article-category">
-  <a class="article-category-link" href="/categories/web/">Web技术</a>
-</div>
-
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        
-      
-      
-        <p>to be continued…</p>
-        
-          <p>
-            <a class="article-more-link" href="/2022/05/23/Markdown%E8%AF%AD%E6%B3%95/">
-              阅读更多...
-            </a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webTech/" rel="tag">Web技术</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-    
-    <article id="post-Web技术/Web-浏览器存储" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-      
-
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/05/22/Web%E6%8A%80%E6%9C%AF/Web-%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8/">浏览器存储</a>
-</h2>
-
-
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2022/05/22/Web%E6%8A%80%E6%9C%AF/Web-%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8/" class="article-date">
-  <time datetime="2022-05-22T07:56:19.000Z" itemprop="datePublished">2022-05-22</time>
-</a>
-      
-<div class="article-category">
-  <a class="article-category-link" href="/categories/web/">Web技术</a>
-</div>
-
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        
-      
-      
-      
-      
-    </div>
-    <footer class="article-footer">
-      
-<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Js/" rel="tag">Js</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-    
-    <article id="post-JS/JS-对象的存取器属性" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-      
-
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/05/22/JS/JS-%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AD%98%E5%8F%96%E5%99%A8%E5%B1%9E%E6%80%A7/">对象的存取器属性</a>
-</h2>
-
-
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2022/05/22/JS/JS-%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AD%98%E5%8F%96%E5%99%A8%E5%B1%9E%E6%80%A7/" class="article-date">
-  <time datetime="2022-05-22T06:08:51.000Z" itemprop="datePublished">2022-05-22</time>
-</a>
-      
-<div class="article-category">
-  <a class="article-category-link" href="/categories/js/">Js</a>
-</div>
-
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        
-      
-      
-        <blockquote>
-<p>Js 中除了直接定义属性值，还可以通过getter（取值器）、setter（存值器）来存取属性。当属性只有取值器时进行赋值会报错，当属性只有存值器时获取值，是undefined。</p>
-</blockquote>
-        
-          <p>
-            <a class="article-more-link" href="/2022/05/22/JS/JS-%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AD%98%E5%8F%96%E5%99%A8%E5%B1%9E%E6%80%A7/">
-              阅读更多...
-            </a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Js/" rel="tag">Js</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-    
-    <article id="post-JS/坐标&amp;宽高&amp;left&amp;&amp;Top总结" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-      
-
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/05/22/JS/%E5%9D%90%E6%A0%87&%E5%AE%BD%E9%AB%98&left&&Top%E6%80%BB%E7%BB%93/">坐标、宽高、left&amp;top总结</a>
-</h2>
-
-
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2022/05/22/JS/%E5%9D%90%E6%A0%87&%E5%AE%BD%E9%AB%98&left&&Top%E6%80%BB%E7%BB%93/" class="article-date">
-  <time datetime="2022-05-22T06:08:51.000Z" itemprop="datePublished">2022-05-22</time>
-</a>
-      
-<div class="article-category">
-  <a class="article-category-link" href="/categories/js/">Js</a>
-</div>
-
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        
-      
-      
-        <blockquote>
-<p>现在虽然很少处理dom，但有些时候还是会遇到，现总结一下备查。</p>
-</blockquote>
-        
-          <p>
-            <a class="article-more-link" href="/2022/05/22/JS/%E5%9D%90%E6%A0%87&%E5%AE%BD%E9%AB%98&left&&Top%E6%80%BB%E7%BB%93/">
-              阅读更多...
-            </a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Js/" rel="tag">Js</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-    
-    <article id="post-Css/Flex布局" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-      
-
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/05/22/Css/Flex%E5%B8%83%E5%B1%80/">Flex布局</a>
-</h2>
-
-
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2022/05/22/Css/Flex%E5%B8%83%E5%B1%80/" class="article-date">
-  <time datetime="2022-05-22T03:02:03.000Z" itemprop="datePublished">2022-05-22</time>
-</a>
-      
-<div class="article-category">
-  <a class="article-category-link" href="/categories/css/">css</a>
-</div>
-
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        
-      
-      
-        <blockquote>
-<p>弹性布局分为两块设置，container（容器）和items（项目）。w3c标注和各浏览器标准(比如MDN文档)有差异，比如justify-content属性值w3c没有stretch，只有flex-start | flex-end | center | space-between | space-around（<a target="_blank" rel="noopener" href="https://www.w3.org/TR/css-flexbox-1/#justify-content-property%EF%BC%89%E3%80%82">https://www.w3.org/TR/css-flexbox-1/#justify-content-property）。</a></p>
-</blockquote>
-        
-          <p>
-            <a class="article-more-link" href="/2022/05/22/Css/Flex%E5%B8%83%E5%B1%80/">
-              阅读更多...
-            </a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/" rel="tag">css</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-    
-    <article id="post-常用命令&amp;快捷键" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-      
-
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/05/21/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4&%E5%BF%AB%E6%8D%B7%E9%94%AE/">常用的命令</a>
-</h2>
-
-
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2022/05/21/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4&%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="article-date">
-  <time datetime="2022-05-21T14:09:16.000Z" itemprop="datePublished">2022-05-21</time>
-</a>
-      
-<div class="article-category">
-  <a class="article-category-link" href="/categories/env/">环境搭建与操作</a>
-</div>
-
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        
-      
-      
-        <p>日常经常用到的命令行…</p>
-        
-          <p>
-            <a class="article-more-link" href="/2022/05/21/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4&%E5%BF%AB%E6%8D%B7%E9%94%AE/">
-              阅读更多...
-            </a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/env/" rel="tag">Env</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-    
-    <article id="post-Css/word-break &amp; word-wrap" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-      
-
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/05/20/Css/word-break%20&%20word-wrap/">word-break、 word-wrap、white-space 的区别</a>
-</h2>
-
-
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2022/05/20/Css/word-break%20&%20word-wrap/" class="article-date">
-  <time datetime="2022-05-20T13:14:14.000Z" itemprop="datePublished">2022-05-20</time>
-</a>
-      
-<div class="article-category">
-  <a class="article-category-link" href="/categories/css/">css</a>
-</div>
-
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        
-      
-      
-        <p>word-break、word-wrap 针对的是浏览器渲染好的文本进行折行的问题，white-space针对的是对html文本里的空格是否折叠、换行的问题。word-break: break-all | keep-all ,前者会破开一个单词，一般不用，keep-all, 空格、中文标点、连词符会破开，相对友好；</p>
-<p>word-wrap: break-word，同word-break: break-word效果一致，但后者已经deprecated（仅chrome、safari等支持）；</p>
-<p>white-space 针对html里的文本（即源文本）中的空白再浏览器中如何渲染的问题，主要涉及是否折叠、换行。</p>
-        
-          <p>
-            <a class="article-more-link" href="/2022/05/20/Css/word-break%20&%20word-wrap/">
-              阅读更多...
-            </a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/" rel="tag">css</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-    
-    <article id="post-hexo &amp; github 博客搭建" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-      
-
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/05/20/hexo%20&%20github%20%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">hexo &amp; github 博客搭建</a>
-</h2>
-
-
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2022/05/20/hexo%20&%20github%20%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="article-date">
-  <time datetime="2022-05-20T12:00:41.325Z" itemprop="datePublished">2022-05-20</time>
-</a>
-      
-<div class="article-category">
-  <a class="article-category-link" href="/categories/env/">环境搭建与操作</a>
-</div>
-
-    </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        
-      
-      
-        <p>Hexo 搭建过程中遇到的问题和解决方法…</p>
-        
-          <p>
-            <a class="article-more-link" href="/2022/05/20/hexo%20&%20github%20%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
-              阅读更多...
-            </a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-    
   </article>
   
 
+  
+  <nav class="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+  </nav>
   
 </section>
 </div>

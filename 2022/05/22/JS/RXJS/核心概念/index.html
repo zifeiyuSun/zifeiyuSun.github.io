@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="以此记录日常的工作和学习">
+  
+  <title>
+    核心概念 |
+    
+    田木夕
+  </title>
+  <!-- Icon -->
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-JS/RXJS/核心概念" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+
+<h1 class="article-title" itemprop="name">
+  核心概念
+</h1>
+
+
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2022/05/22/JS/RXJS/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/" class="article-date">
+  <time datetime="2022-05-22T06:08:51.000Z" itemprop="datePublished">2022-05-22</time>
+</a>
+      
+<div class="article-category">
+  <a class="article-category-link" href="/categories/js/">Js</a>
+</div>
+
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+      <blockquote>
+<p>RxJS ReactiveX js的缩写，是一个库，用于使用可观察序列编写异步和基于事件的程序。它提供了一个核心类型，Observable，卫星类型（Observer，Schedulers，Subjects）和受Array方法启发的运算符（map，filter，reduce，every等），以允许将异步事件作为集合进行处理。</p>
+</blockquote>
+<span id="more"></span>
+
+
+<p>ReactiveX 将 Observer 模式与迭代器模式和函数式编程与集合相结合，以满足对管理事件序列的理想方式的需求。</p>
+<p>RxJS 中解决异步事件管理的基本概念是：</p>
+<ul>
+<li><p>Observable 可观察对象：表示未来值或事件的可调用集合的概念。<b> 即流。</b></p>
+</li>
+<li><p>Observer 观察者：是一个回调集合，知道如何监听可观察量传递的值。<b> 对流的处理 </b></p>
+</li>
+<li><p>Subscription 订阅：表示可观察量的执行，主要用于取消执行。<b> 对流进行观察之后返回的对象，主要用于unsubscribe </b></p>
+</li>
+<li><p>Operators 运算符：是纯函数，可实现函数式编程风格，通过映射，过滤器，concat，reduce等操作来处理集合。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Subscription</span> = <span class="title class_">Observable</span>.<span class="title function_">pipe</span>(<span class="title class_">Operators</span>).<span class="property">subscribe</span> (observer)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Subject 主题：等效于 EventEmitter，是将值或事件多播给多个观察者的唯一方法。</p>
+</li>
+<li><p>Schedulers 调度程序：是控制并发性的集中式调度程序，允许我们在诸如setTimeout或requestAnimationFrame或其他情况下进行计算时进行协调。</p>
+</li>
+</ul>
+<h3 id="纯度"><a href="#纯度" class="headerlink" title="纯度"></a>纯度</h3><p>RxJS的强大之处在于它能够使用纯函数生成值。这意味着您的代码不容易出错。</p>
+<p>通常，您将创建一个不纯函数，其中代码的其他部分可能会弄乱您的状态。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> count = <span class="number">0</span>;</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Clicked <span class="subst">$&#123;++count&#125;</span> times`</span>));</span><br></pre></td></tr></table></figure>
+
+<p>RxJS 可以让你隔离状态.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; fromEvent, scan &#125; <span class="keyword">from</span> <span class="string">&#x27;rxjs&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_">fromEvent</span>(<span class="variable language_">document</span>, <span class="string">&#x27;click&#x27;</span>)</span><br><span class="line">  .<span class="title function_">pipe</span>(<span class="title function_">scan</span>(<span class="function">(<span class="params">count</span>) =&gt;</span> count + <span class="number">1</span>, <span class="number">0</span>))</span><br><span class="line">  .<span class="title function_">subscribe</span>(<span class="function">(<span class="params">count</span>) =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Clicked <span class="subst">$&#123;count&#125;</span> times`</span>));</span><br></pre></td></tr></table></figure>
+<p>扫描运算符的工作方式与数组的 reduce 一样。它向回调公开返回值。然后，回调的返回值将成为下次运行回调时公开的值。</p>
+<h3 id="流"><a href="#流" class="headerlink" title="流"></a>流</h3><p>RxJS 具有一系列运算符，可帮助您控制事件流经可观察量的方式。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rxjs/" rel="tag">rxjs</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2022/05/22/JS/%E5%9D%90%E6%A0%87&%E5%AE%BD%E9%AB%98&left&&Top%E6%80%BB%E7%BB%93/" class="article-nav-link">
+    <strong class="article-nav-caption">前一篇</strong>
+    <div class="article-nav-title">
+      
+      坐标、宽高、left&amp;top总结
+      
+    </div>
+  </a>
+  
+  
+  <a href="/2022/05/22/Css/Flex%E5%B8%83%E5%B1%80/" class="article-nav-link">
+    <strong class="article-nav-caption">后一篇</strong>
+    <div class="article-nav-title">Flex布局</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>田木夕 &copy; 2022</li>
+      
+        <li></li>
+      
+      <li> - 思考让生活更美好 - </li>
+    </ul>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/myLogoInverted.png" alt="田木夕"></a>
+  </div>
+  
+  
+  <ul class="nav nav-main">
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">首页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags/">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">时间轴</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>

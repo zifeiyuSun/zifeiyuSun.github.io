@@ -10,7 +10,7 @@
   <meta name="description" content="以此记录日常的工作和学习">
   
   <title>
-    坐标、宽高、left&amp;top总结 |
+    数组相关操作 |
     
     田木夕
   </title>
@@ -34,7 +34,7 @@
 <body>
   <main class="content">
     <section class="outer">
-  <article id="post-JS/坐标&amp;宽高&amp;left&amp;&amp;Top总结" class="article article-type-post" itemscope
+  <article id="post-JS/ES6/Array" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -43,7 +43,7 @@
       
 
 <h1 class="article-title" itemprop="name">
-  坐标、宽高、left&amp;top总结
+  数组相关操作
 </h1>
 
 
@@ -53,8 +53,8 @@
 
     
     <div class="article-meta">
-      <a href="/2022/05/22/JS/%E5%9D%90%E6%A0%87&%E5%AE%BD%E9%AB%98&left&&Top%E6%80%BB%E7%BB%93/" class="article-date">
-  <time datetime="2022-05-22T06:08:51.000Z" itemprop="datePublished">2022-05-22</time>
+      <a href="/2022/05/31/JS/ES6/Array/" class="article-date">
+  <time datetime="2022-05-31T09:08:51.000Z" itemprop="datePublished">2022-05-31</time>
 </a>
       
 <div class="article-category">
@@ -66,8 +66,6 @@
 
     
     
-<div class="tocbot"></div>
-
     
 
     <div class="article-entry" itemprop="articleBody">
@@ -75,76 +73,95 @@
       
       
       <blockquote>
-<p>现在虽然很少处理dom，但有些时候还是会遇到，现总结一下备查。</p>
+<p>工欲善其事必先利其器。</p>
 </blockquote>
 <span id="more"></span>
-<h1 id="各种坐标值的区别"><a href="#各种坐标值的区别" class="headerlink" title="各种坐标值的区别"></a>各种坐标值的区别</h1><hr>
-<table>
-    <tbody>
-        <tr>
-            <td></td>
-            <td>key</td>
-            <td>描述</td>
-        </tr>
-        <tr>
-            <td rowspan="3" width="160">相对于固定点</td>
-            <td>pageX、pageY</td>
-            <td> <b>相对于整个document文档的左上角</b>(relative to the whole document), 文档如有滚动条，也是从滚出去的顶部开始算。</td>
-        </tr>
-        <tr>
-            <td>clientX、clientY</td>
-            <td> <b>相对于浏览器可视区(viewPort)的左上角，不受滚动条影响。</b> (Relative to the upper left edge of the content area (the viewport) of the browser window. This point does not move even if the user moves a scrollbar from within the browser.)</td>
-        </tr>
-        <tr>
-            <td>screenX、screenY</td>
-            <td> <b>相对于物理屏幕的左上角</b>（Relative to the top left of the physical screen/monitor）</td>
-        </tr>
-        <tr>
-            <td>相对于不固定的点</td>
-            <td>offsetX、offsetY</td>
-            <td> <b>相对于目标元素(即event.target当前event发生的元素，currentTarget：当前事件绑定的元素)</b> （relative to the target element）</td>
-        </tr>
-    </tbody>
-</table>
-
-<h1 id="各种width、height的区别"><a href="#各种width、height的区别" class="headerlink" title="各种width、height的区别"></a>各种width、height的区别</h1><hr>
-<p>设置了box-sizing: border-box，计算规则不变。比如：$(‘.box’).width() 是获取content的宽度。设置之后<b style="color: #ce3737">依然是获取计算出来的content的width</b></p>
 <table>
 <thead>
 <tr>
-<th>值</th>
+<th>方法</th>
 <th>描述</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>width()</td>
-<td>jquery方法，仅content的宽度。</td>
+<td>concat</td>
+<td>返回一个新数组，将宿主数组和参数数组连接起来，可以指定多个数组。</td>
 </tr>
 <tr>
-<td>clientWidth</td>
-<td>content + padding</td>
+<td>pop</td>
+<td>移除并返回最后一个元素</td>
 </tr>
 <tr>
-<td>offsetWidth</td>
-<td>content + padding + border</td>
-</tr>
-</tbody></table>
-<h1 id="各种left、top的区别"><a href="#各种left、top的区别" class="headerlink" title="各种left、top的区别"></a>各种left、top的区别</h1><hr>
-<p>当元素通过margin或定位或滚动条移出相对元素的最上边和最左边时，<b style="color: #ce3737">返回负值</b>。</p>
-<table>
-<thead>
-<tr>
-<th>值</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>offset()</td>
-<td>jquery方法，offset().left、offset().top，元素左上角(包括content+padding+border)相对于整个document文档</td>
+<td>shift</td>
+<td>移除并返回第一个元素</td>
 </tr>
 <tr>
-<td>offsetLeft</td>
-<td>元素左上角相对于最近的有定位的父元素的偏移量。相对于谁定位就是相对谁的偏移。</td>
+<td>unshift</td>
+<td>将参数元素插入数组起始位</td>
+</tr>
+<tr>
+<td>reverse</td>
+<td>返回一个新数组，元素顺序相反</td>
+</tr>
+<tr>
+<td>slice(start, end)</td>
+<td>返回截取数组元素</td>
+</tr>
+<tr>
+<td>sort</td>
+<td>可选参数（函数）用于执行自定义比较操作</td>
+</tr>
+<tr>
+<td>splice(index, count)</td>
+<td>返回移除项</td>
+</tr>
+<tr>
+<td>evert(test)</td>
+<td>每个元素执行test都返回true，则这个方法返回true</td>
+</tr>
+<tr>
+<td>some(test)</td>
+<td>每个元素执行test，如果有一个返回true则函数返回true</td>
+</tr>
+<tr>
+<td>filter(test)</td>
+<td>对每个元素进行test，满足条件的组成新数组，返回新数组</td>
+</tr>
+<tr>
+<td>find(test)</td>
+<td>返回第一个让test返回true的元素</td>
+</tr>
+<tr>
+<td>findIndex(test)</td>
+<td>返回第一个让test返回true的元素的index</td>
+</tr>
+<tr>
+<td>forEach(callback)</td>
+<td>对元素调用callback(item, index, arr); arr为原数组</td>
+</tr>
+<tr>
+<td>includes(value)</td>
+<td>是否包含指定元素，如果有返回true</td>
+</tr>
+<tr>
+<td>map(callback)</td>
+<td>map是对每个元素进行执行callback，返回一个新数组。返回一个新数组，元素执行callback函数后返回的结果组成的数组，callback(item, index, arr)</td>
+</tr>
+<tr>
+<td>reduce(callback, [initVal])</td>
+<td>返回对每个元素调用callback产生的累计值。callback(sum, item, index, arr)</td>
+</tr>
+<tr>
+<td>flat(number)</td>
+<td>返回一个新数组，number表示拉平的嵌套数，Infinity表示拉平所有嵌套数组</td>
+</tr>
+<tr>
+<td>flatMap(callback)</td>
+<td>返回一个新数组，对元素执行callback返回行程的数组，再执行flap()，只能拉平一层</td>
+</tr>
+<tr>
+<td>at(index)</td>
+<td>返回当前索引值的元素, -1表示最后一个，可以替代arr[arr.length - 1]</td>
 </tr>
 </tbody></table>
 
@@ -162,19 +179,19 @@
   
 <nav class="article-nav">
   
-  <a href="/2022/05/22/JS/JS-%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AD%98%E5%8F%96%E5%99%A8%E5%B1%9E%E6%80%A7/" class="article-nav-link">
+  <a href="/2022/06/04/JS/ES6/Object/" class="article-nav-link">
     <strong class="article-nav-caption">前一篇</strong>
     <div class="article-nav-title">
       
-      对象的存取器属性
+      对象相关操作
       
     </div>
   </a>
   
   
-  <a href="/2022/05/22/JS/RXJS/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/" class="article-nav-link">
+  <a href="/2022/05/31/JS/ES6/Set%E5%92%8CMap/" class="article-nav-link">
     <strong class="article-nav-caption">后一篇</strong>
-    <div class="article-nav-title">核心概念</div>
+    <div class="article-nav-title"></div>
   </a>
   
 </nav>

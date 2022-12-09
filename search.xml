@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>/2022/05/31/JS/ES6/Iterator/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2022/05/31/JS/ES6/Set%E5%92%8CMap/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>Markdown语法</title>
     <url>/2022/05/23/Markdown%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<p>to be continued…</p>
@@ -47,6 +57,139 @@
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用的命令</title>
+    <url>/2022/05/21/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4&amp;%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+    <content><![CDATA[<p>日常经常用到的命令行…</p>
+<span id="more"></span>
+
+<h1 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h1><hr>
+<h1 id="mac"><a href="#mac" class="headerlink" title="mac"></a>mac</h1><hr>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">command + space  <span class="comment">// 快速打开spotlight，输入应用程序迅速打开</span></span><br><span class="line">command + option + c <span class="comment">// 快速复制文件地址</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Terminal"><a href="#Terminal" class="headerlink" title="Terminal"></a>Terminal</h1><hr>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">open -e  ~<span class="regexp">/.bash_profile  /</span><span class="regexp">/ 打开环境变量文件</span></span><br><span class="line"><span class="regexp">source ~/</span>.<span class="property">bash_profile</span> <span class="comment">//执行当前更改，当前shell下执行eport path方式只是临时有效，关掉即销毁。</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><hr>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git add filePath</td>
+<td>添加改动</td>
+</tr>
+<tr>
+<td>git commit -m “commit text”</td>
+<td>commit 当前修改</td>
+</tr>
+<tr>
+<td>git merge dev</td>
+<td>把dev分支合并到当前分支</td>
+</tr>
+<tr>
+<td>git reset –soft(mixed、hard) HEAD^</td>
+<td>上一个版本 &#x3D;&#x3D;&#x3D; git reset –soft HEAD<del>1 （HEAD</del>2撤销两个commit）</td>
+</tr>
+<tr>
+<td>git branch -r</td>
+<td>查看所有远程分支</td>
+</tr>
+<tr>
+<td>git checkout -b test origin&#x2F;test</td>
+<td>在本地创建以线上test分支为基础的分支</td>
+</tr>
+<tr>
+<td>git checkout -b dev</td>
+<td>创建本地分支，然后切换到dev分支，等同于：git branch dev; git checkout dev;</td>
+</tr>
+<tr>
+<td>git push origin dev:dev</td>
+<td>推送本地的dev(冒号前面的)分支到远程origin的dev(冒号后面的)分支(没有会自动创建)</td>
+</tr>
+<tr>
+<td>git checkout master</td>
+<td>把当前的工作内容合并到master分支上：</td>
+</tr>
+</tbody></table>
+<h1 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h1><hr>
+<blockquote>
+<p>vi 是unix系统最初的编辑器，使用控制台模拟文本编辑窗口，功能强大。 GNU 项目中，程序员在将 Vi 编辑器移植到开源世界的同时，决定对其作一些改进。由于改进后的 Vi 不再是以前 Unix 中的那个原始的 Vi 编辑器了，开发人员也就将它重命名为“Vi improved”，也就是 Vim。Linux&#x2F;macos 发行版都内嵌有 Vim 文本编辑器，macos在&#x2F;usr&#x2F;bin&#x2F;usr&#x2F;local&#x2F;bin目录下。</p>
+</blockquote>
+<p>vim三种模式：1.输入模式；2.命令模式；3.底线命令模式； ~ 表示没内容</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>vim text.txt</td>
+<td>打开文件，没有时自动创建</td>
+</tr>
+<tr>
+<td>i&#x2F;o&#x2F;a</td>
+<td>进入输入模式，除了 Esc ，其它键都可以输入。（i\o\a\I\O\A: 输入的位置和替换效果不一样，感觉没比较记，毕竟键盘很方便了）</td>
+</tr>
+<tr>
+<td>esc</td>
+<td>退出编辑模式，进入命令模式</td>
+</tr>
+<tr>
+<td>:q!</td>
+<td>强制退出，修改过文档但不想保存, &#x3D;&#x3D;&#x3D; ZQ</td>
+</tr>
+<tr>
+<td>:wq</td>
+<td>write and quite，保存并退出, &#x3D;&#x3D;&#x3D; ZZ</td>
+</tr>
+<tr>
+<td>:w</td>
+<td>保存</td>
+</tr>
+<tr>
+<td>:set nu</td>
+<td>number的缩写，显示行号。:set nonu 取消行号。</td>
+</tr>
+</tbody></table>
+<h1 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h1><p>命令 | 描述<br> npm cache clean –force | 清除npm 安装缓存</p>
+]]></content>
+      <categories>
+        <category>环境搭建与操作</category>
+      </categories>
+      <tags>
+        <tag>Env</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>base-href和deploy-url</title>
+    <url>/2022/06/07/Angular/base-href%E5%92%8Cdeploy-url/</url>
+    <content><![CDATA[<p>base-href 是</p>
+<span id="more"></span>
+
+<p><b style="color: red;">css 引入图片，相对与css文件的路径，html引入图片相对html文件的路径，谁引入相对于谁。</b></p>
+<h1 id="base-href"><a href="#base-href" class="headerlink" title="base-href"></a>base-href</h1><p>base-href 决定的是应用的部署位置，也就是用户通过什么路径能够访问这个网站。而 deploy-url 决定的是打包后的资源文件（图片，字体，js等）被部署在哪里，可以如上示例是应用的子目录下，也可以是某个 cdn 服务器中。<br>&#x2F; : 相对根目录<br>.&#x2F;: 相对当前目录<br>..&#x2F;: 上一级</p>
+<p>页面的相对路径会基于这个配置，例如(image&#x2F;test.png) 的实际访问路径是： &#x2F;client&#x2F;image&#x2F;test.png<br>四种配置方式：</p>
+<ol>
+<li>index.html：<base href="/client/">，默认是”&#x2F;“</li>
+<li>ng build  –base-href &#x2F;client&#x2F;</li>
+<li>angular.json： baseHref: &#x2F;client&#x2F;</li>
+<li><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;<span class="variable constant_">APP_BASE_HREF</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;@angular/common&#x27;</span>;</span><br><span class="line">@<span class="title class_">NgModule</span>(&#123;</span><br><span class="line"><span class="attr">providers</span>: [&#123;<span class="attr">provide</span>: <span class="variable constant_">APP_BASE_HREF</span>, <span class="attr">useValue</span>: <span class="string">&#x27;/my/app&#x27;</span>&#125;]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="deploy-url"><a href="#deploy-url" class="headerlink" title="deploy-url"></a>deploy-url</h1><p> –deploy-url &#x2F;static&#x2F;client&#x2F;<br> 会把html、css引用的资源路径替换成：&#x2F;static&#x2F;client&#x2F;images&#x2F;bg.jpg，相对于根目录，<a href="http://www.test.com/static/client/images/bg.jpg">www.test.com/static/client/images/bg.jpg</a><br> ts、html文件易考项目deploy-url无效，都是static_url拼接的，ex：div.style.background &#x3D; “url(‘..&#x2F;..&#x2F;assets&#x2F;images&#x2F;eagle-tip-pc.png’)”;</p>
+]]></content>
+      <categories>
+        <category>angular</category>
+      </categories>
+      <tags>
+        <tag>Env</tag>
       </tags>
   </entry>
   <entry>
@@ -217,70 +360,6 @@
       </tags>
   </entry>
   <entry>
-    <title>常用的命令</title>
-    <url>/2022/05/21/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4&amp;%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
-    <content><![CDATA[<p>日常经常用到的命令行…</p>
-<span id="more"></span>
-
-<h1 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h1><hr>
-<h1 id="mac"><a href="#mac" class="headerlink" title="mac"></a>mac</h1><hr>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">command + space  <span class="comment">// 快速打开spot，输入应用程序迅速打开</span></span><br></pre></td></tr></table></figure>
-
-
-<h1 id="Terminal"><a href="#Terminal" class="headerlink" title="Terminal"></a>Terminal</h1><hr>
-<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><hr>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">git add filePath <span class="comment">// 添加改动</span></span><br><span class="line">git commit -m <span class="string">&quot;commit text&quot;</span> <span class="comment">// commit 当前修改 </span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h1><hr>
-<blockquote>
-<p>vi 是unix系统最初的编辑器，使用控制台模拟文本编辑窗口，功能强大。 GNU 项目中，程序员在将 Vi 编辑器移植到开源世界的同时，决定对其作一些改进。由于改进后的 Vi 不再是以前 Unix 中的那个原始的 Vi 编辑器了，开发人员也就将它重命名为“Vi improved”，也就是 Vim。Linux&#x2F;macos 发行版都内嵌有 Vim 文本编辑器，macos在&#x2F;usr&#x2F;bin&#x2F;usr&#x2F;local&#x2F;bin目录下。</p>
-</blockquote>
-<p>vim三种模式：1.输入模式；2.命令模式；3.底线命令模式； ~ 表示没内容</p>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>vim text.txt</td>
-<td>打开文件，没有时自动创建</td>
-</tr>
-<tr>
-<td>i&#x2F;o&#x2F;a</td>
-<td>进入输入模式，除了 Esc ，其它键都可以输入。（i\o\a\I\O\A: 输入的位置和替换效果不一样，感觉没比较记，毕竟键盘很方便了）</td>
-</tr>
-<tr>
-<td>esc</td>
-<td>退出编辑模式，进入命令模式</td>
-</tr>
-<tr>
-<td>:q!</td>
-<td>强制退出，修改过文档但不想保存, &#x3D;&#x3D;&#x3D; ZQ</td>
-</tr>
-<tr>
-<td>:wq</td>
-<td>write and quite，保存并退出, &#x3D;&#x3D;&#x3D; ZZ</td>
-</tr>
-<tr>
-<td>:w</td>
-<td>保存</td>
-</tr>
-<tr>
-<td>:set nu</td>
-<td>number的缩写，显示行号。:set nonu 取消行号。</td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>环境搭建与操作</category>
-      </categories>
-      <tags>
-        <tag>Env</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>word-break、 word-wrap、white-space 的区别</title>
     <url>/2022/05/20/Css/word-break%20&amp;%20word-wrap/</url>
     <content><![CDATA[<p>word-break、word-wrap 针对的是浏览器渲染好的文本进行折行的问题，white-space针对的是对html文本里的空格是否折叠、换行的问题。word-break: break-all | keep-all ,前者会破开一个单词，一般不用，keep-all, 空格、中文标点、连词符会破开，相对友好；</p>
@@ -410,6 +489,43 @@
       </tags>
   </entry>
   <entry>
+    <title>元素的contentEditable</title>
+    <url>/2022/08/04/JS/contentEditable/</url>
+    <content><![CDATA[<blockquote>
+<p>Js 中除了直接定义属性值，还可以通过getter（取值器）、setter（存值器）来存取属性。当属性只有取值器时进行赋值会报错，当属性只有存值器时获取值，是undefined。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Js</category>
+      </categories>
+      <tags>
+        <tag>Js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>preventDefault和stopPropagation</title>
+    <url>/2022/07/07/JS/preventDefault%E5%92%8CstopPropagation/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Js</category>
+      </categories>
+      <tags>
+        <tag>Js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>动态引入js文件</title>
+    <url>/2022/06/15/JS/%E5%8A%A8%E6%80%81%E5%BC%95%E5%85%A5js%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<p>通过以下方法创建的js文件，默认是异步加载的。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> cssUrls = [<span class="string">&quot;template/css/basic.css&quot;</span>, <span class="string">&quot;template/css/waitPage.css&quot;</span>];</span><br><span class="line"><span class="keyword">const</span> jsUrls = [<span class="string">&quot;RecordRTC.js&quot;</span>, <span class="string">&quot;client/assets/js/for_skin/recordUtil.js&quot;</span>, <span class="string">&quot;client/assets/js/for_skin/joyBridge.js&quot;</span>, <span class="string">&quot;template/js/jquery-1.10.2.min.js&quot;</span>, <span class="string">&quot;template/js/main.js&quot;</span>, <span class="string">&quot;template/js/singleSpeak.js&quot;</span>];</span><br><span class="line">cssUrls.<span class="title function_">forEach</span>(<span class="keyword">function</span>(<span class="params">cssUrl</span>)&#123;</span><br><span class="line">    <span class="title function_">loadCss</span>(cssUrl);</span><br><span class="line">&#125;)</span><br><span class="line">jsUrls.<span class="title function_">forEach</span>(<span class="keyword">function</span>(<span class="params">jsUrl</span>)&#123;</span><br><span class="line">    <span class="title function_">loadJs</span>(jsUrl);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加载外部css文件</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">loadCss</span>(<span class="params">url</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> baseUrl = <span class="title function_">getBaseUrl</span>(url);</span><br><span class="line">    <span class="keyword">var</span> head = <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&#x27;head&#x27;</span>)[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">var</span> link = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;link&#x27;</span>);</span><br><span class="line">    link.<span class="property">type</span>=<span class="string">&#x27;text/css&#x27;</span>;</span><br><span class="line">    link.<span class="property">rel</span> = <span class="string">&#x27;stylesheet&#x27;</span>;</span><br><span class="line">    link.<span class="property">href</span> = baseUrl + url;</span><br><span class="line">    head.<span class="title function_">appendChild</span>(link);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加载外部js文件</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">loadJs</span>(<span class="params">url</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> baseUrl = <span class="title function_">getBaseUrl</span>(url);</span><br><span class="line">    <span class="keyword">var</span> jsNodes = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#wrap-js-nodes&#x27;</span>);</span><br><span class="line">    <span class="keyword">var</span> script = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;script&#x27;</span>);</span><br><span class="line">    script.<span class="property">type</span>=<span class="string">&#x27;text/javascript&#x27;</span>;</span><br><span class="line">    script.<span class="property">src</span> = baseUrl + url; </span><br><span class="line">    script.<span class="property">async</span> = <span class="literal">false</span>; <span class="comment">// 强制同步加载</span></span><br><span class="line">    <span class="comment">// 监听script是否load成功，加载失败reload</span></span><br><span class="line"></span><br><span class="line">    jsNodes.<span class="title function_">appendChild</span>(script);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Js</category>
+      </categories>
+      <tags>
+        <tag>Js</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>坐标、宽高、left&amp;top总结</title>
     <url>/2022/05/22/JS/%E5%9D%90%E6%A0%87&amp;%E5%AE%BD%E9%AB%98&amp;left&amp;&amp;Top%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<blockquote>
@@ -446,7 +562,29 @@
 </table>
 
 <h1 id="各种width、height的区别"><a href="#各种width、height的区别" class="headerlink" title="各种width、height的区别"></a>各种width、height的区别</h1><hr>
+<p>设置了box-sizing: border-box，计算规则不变。比如：$(‘.box’).width() 是获取content的宽度。设置之后<b style="color: #ce3737">依然是获取计算出来的content的width</b></p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>width()</td>
+<td>jquery方法，仅content的宽度。</td>
+</tr>
+<tr>
+<td>clientWidth</td>
+<td>content + padding</td>
+</tr>
+<tr>
+<td>offsetWidth</td>
+<td>content + padding + border</td>
+</tr>
+</tbody></table>
 <h1 id="各种left、top的区别"><a href="#各种left、top的区别" class="headerlink" title="各种left、top的区别"></a>各种left、top的区别</h1><hr>
+<p>当元素通过margin或定位或滚动条移出相对元素的最上边和最左边时，<b style="color: #ce3737">返回负值</b>。</p>
 <table>
 <thead>
 <tr>
@@ -457,6 +595,10 @@
 <tbody><tr>
 <td>offset()</td>
 <td>jquery方法，offset().left、offset().top，元素左上角(包括content+padding+border)相对于整个document文档</td>
+</tr>
+<tr>
+<td>offsetLeft</td>
+<td>元素左上角相对于最近的有定位的父元素的偏移量。相对于谁定位就是相对谁的偏移。</td>
 </tr>
 </tbody></table>
 ]]></content>
@@ -476,6 +618,227 @@
       </categories>
       <tags>
         <tag>Js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数组相关操作</title>
+    <url>/2022/05/31/JS/ES6/Array/</url>
+    <content><![CDATA[<blockquote>
+<p>工欲善其事必先利其器。</p>
+</blockquote>
+<span id="more"></span>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>concat</td>
+<td>返回一个新数组，将宿主数组和参数数组连接起来，可以指定多个数组。</td>
+</tr>
+<tr>
+<td>pop</td>
+<td>移除并返回最后一个元素</td>
+</tr>
+<tr>
+<td>shift</td>
+<td>移除并返回第一个元素</td>
+</tr>
+<tr>
+<td>unshift</td>
+<td>将参数元素插入数组起始位</td>
+</tr>
+<tr>
+<td>reverse</td>
+<td>返回一个新数组，元素顺序相反</td>
+</tr>
+<tr>
+<td>slice(start, end)</td>
+<td>返回截取数组元素</td>
+</tr>
+<tr>
+<td>sort</td>
+<td>可选参数（函数）用于执行自定义比较操作</td>
+</tr>
+<tr>
+<td>splice(index, count)</td>
+<td>返回移除项</td>
+</tr>
+<tr>
+<td>evert(test)</td>
+<td>每个元素执行test都返回true，则这个方法返回true</td>
+</tr>
+<tr>
+<td>some(test)</td>
+<td>每个元素执行test，如果有一个返回true则函数返回true</td>
+</tr>
+<tr>
+<td>filter(test)</td>
+<td>对每个元素进行test，满足条件的组成新数组，返回新数组</td>
+</tr>
+<tr>
+<td>find(test)</td>
+<td>返回第一个让test返回true的元素</td>
+</tr>
+<tr>
+<td>findIndex(test)</td>
+<td>返回第一个让test返回true的元素的index</td>
+</tr>
+<tr>
+<td>forEach(callback)</td>
+<td>对元素调用callback(item, index, arr); arr为原数组</td>
+</tr>
+<tr>
+<td>includes(value)</td>
+<td>是否包含指定元素，如果有返回true</td>
+</tr>
+<tr>
+<td>map(callback)</td>
+<td>map是对每个元素进行执行callback，返回一个新数组。返回一个新数组，元素执行callback函数后返回的结果组成的数组，callback(item, index, arr)</td>
+</tr>
+<tr>
+<td>reduce(callback, [initVal])</td>
+<td>返回对每个元素调用callback产生的累计值。callback(sum, item, index, arr)</td>
+</tr>
+<tr>
+<td>flat(number)</td>
+<td>返回一个新数组，number表示拉平的嵌套数，Infinity表示拉平所有嵌套数组</td>
+</tr>
+<tr>
+<td>flatMap(callback)</td>
+<td>返回一个新数组，对元素执行callback返回行程的数组，再执行flap()，只能拉平一层</td>
+</tr>
+<tr>
+<td>at(index)</td>
+<td>返回当前索引值的元素, -1表示最后一个，可以替代arr[arr.length - 1]</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>Js</category>
+      </categories>
+      <tags>
+        <tag>Js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>对象相关操作</title>
+    <url>/2022/06/04/JS/ES6/Object/</url>
+    <content><![CDATA[<blockquote>
+<p>工欲善其事必先利其器。</p>
+</blockquote>
+<span id="more"></span>
+<h1 id="1-属性和方法的简洁写法"><a href="#1-属性和方法的简洁写法" class="headerlink" title="1. 属性和方法的简洁写法"></a>1. 属性和方法的简洁写法</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">&#x27;sun&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> age = <span class="number">18</span>;</span><br><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">    name, <span class="comment">// 属性名就是变量名，属性值就是变量值</span></span><br><span class="line">    age,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 等同于：hello: function...</span></span><br><span class="line">    <span class="title function_">hello</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span> + <span class="variable language_">this</span>.<span class="property">age</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;; </span><br></pre></td></tr></table></figure>
+
+<h1 id="2-属性名表达式"><a href="#2-属性名表达式" class="headerlink" title="2.属性名表达式"></a>2.属性名表达式</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> key = <span class="string">&#x27;name&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">    [key]: <span class="string">&#x27;sun&#x27;</span>,</span><br><span class="line">    [<span class="string">&#x27;a&#x27;</span>+<span class="string">&#x27;ge&#x27;</span>]: <span class="number">18</span>,</span><br><span class="line">    [<span class="string">&#x27;hel&#x27;</span> + <span class="string">&#x27;lo&#x27;</span>]()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">name</span> + <span class="variable language_">this</span>.<span class="property">age</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-属性的遍历"><a href="#3-属性的遍历" class="headerlink" title="3.属性的遍历"></a>3.属性的遍历</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;<span class="attr">name</span>: <span class="string">&#x27;sun&#x27;</span>&#125;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">getOwnPropertyDescriptor</span>(person, <span class="string">&#x27;name&#x27;</span>);</span><br><span class="line"><span class="comment">/*&#123;</span></span><br><span class="line"><span class="comment"> value: ‘sun’,</span></span><br><span class="line"><span class="comment"> writable: true,</span></span><br><span class="line"><span class="comment"> enumerable: true,</span></span><br><span class="line"><span class="comment"> configurable: true</span></span><br><span class="line"><span class="comment">&#125;*/</span></span><br></pre></td></tr></table></figure>
+
+<p>for…in: 会枚举自身和继承的属性<br>Object.keys: 只返回对象自身可枚举的属性<br>JSON.stringigy: 只串行自身可枚举属性<br>Object.assign: 只拷贝自身可枚举属性</p>
+<h1 id="4-扩展操作符"><a href="#4-扩展操作符" class="headerlink" title="4.扩展操作符"></a>4.扩展操作符</h1><blockquote>
+<p>函数调用&#x2F;数组构造时，将数组表达式或者 string 在语法层面展开；还可以在构造字面量对象时，将对象表达式按 key-value 的方式展开</p>
+</blockquote>
+<p>解构赋值的拷贝是浅拷贝。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;...x&#125; = person;</span><br><span class="line">person.<span class="property">name</span> = <span class="string">&#x27;sun1&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(x.<span class="property">name</span>); <span class="comment">// sun1</span></span><br></pre></td></tr></table></figure>
+<p>后面的会覆盖前面的</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = &#123; <span class="attr">foo</span>: <span class="string">&#x27;bar&#x27;</span>, <span class="attr">x</span>: <span class="number">42</span> &#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123; <span class="attr">foo</span>: <span class="string">&#x27;baz&#x27;</span>, <span class="attr">x</span>: <span class="number">13</span> &#125;;</span><br><span class="line"><span class="keyword">var</span> mergedObj = &#123; ...obj1, ...obj2 &#125;; </span><br><span class="line"><span class="comment">// &#123;foo: &#x27;baz&#x27;, x: 13&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="5-对象的合并"><a href="#5-对象的合并" class="headerlink" title="5.对象的合并"></a>5.对象的合并</h1><p>将source1、source2对象复制到target上，同名属性后面的会覆盖前面的。只拷贝自身属性（不拷贝继承属性及不可枚举属性）。<br>如果source对象下有属性为对象，修改source属性对象值也会修改target的值，为<b style="color: #ce3737">浅拷贝</b>。<br>Object.assign(target, source1, source2)</p>
+<p>如果处理的是数组，会将数组当做对象处理，相同index会覆盖前面的。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Object</span>.<span class="title function_">assign</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>]); <span class="comment">// [4, 5, 3]</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Js</category>
+      </categories>
+      <tags>
+        <tag>Js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用方法</title>
+    <url>/2022/06/10/JS/RXJS/%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<blockquote>
+<p>记录rxjs的方法</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="throttleTime-、debounceTime"><a href="#throttleTime-、debounceTime" class="headerlink" title="throttleTime()、debounceTime()"></a>throttleTime()、debounceTime()</h1><hr>
+<p>throttleTime(x):</p>
+<ol>
+<li>初始定时器不计时</li>
+<li>第一个流产生，就开始订阅并计时</li>
+<li>x时间内不抛出新流，x时间到计时停止，重复123</li>
+</ol>
+<p>如果参数只有时间，会有最后一次x时间过去后，新的x时间内的流会被丢掉，所以这种配置只适用于最后一次流影响不明显的场景，比如鼠标移动…</p>
+<p>throttleTime(5000, asyncScheduler, { leading: true, trailing: true })<br><a href="https://stackoverflow.com/questions/57059666/how-does-throttletime-operators-config-parameter-work-throttleconfig">https://stackoverflow.com/questions/57059666/how-does-throttletime-operators-config-parameter-work-throttleconfig</a></p>
+<p>debounceTime(x):</p>
+<ol>
+<li>持续计时，跟踪流</li>
+<li>每个x时间，就抛出最新的流</li>
+</ol>
+<p>所以，如果还没到下一个x时间就结束了，可能会丢掉，同时时持续计时，会造成不必要的</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>timer(1000, 3000)</td>
+<td>第一个参数表示第一个值多久后抛出，第二个参数表示第一个值之后的值多久后抛出，所以，如果没有第二个参数，相当于timeout(()&#x3D;&gt;{}, 1000);</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>Js</category>
+      </categories>
+      <tags>
+        <tag>rxjs</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>核心概念</title>
+    <url>/2022/05/22/JS/RXJS/%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[<blockquote>
+<p>RxJS ReactiveX js的缩写，是一个库，用于使用可观察序列编写异步和基于事件的程序。它提供了一个核心类型，Observable，卫星类型（Observer，Schedulers，Subjects）和受Array方法启发的运算符（map，filter，reduce，every等），以允许将异步事件作为集合进行处理。</p>
+</blockquote>
+<span id="more"></span>
+
+
+<p>ReactiveX 将 Observer 模式与迭代器模式和函数式编程与集合相结合，以满足对管理事件序列的理想方式的需求。</p>
+<p>RxJS 中解决异步事件管理的基本概念是：</p>
+<ul>
+<li><p>Observable 可观察对象：表示未来值或事件的可调用集合的概念。<b> 即流。</b></p>
+</li>
+<li><p>Observer 观察者：是一个回调集合，知道如何监听可观察量传递的值。<b> 对流的处理 </b></p>
+</li>
+<li><p>Subscription 订阅：表示可观察量的执行，主要用于取消执行。<b> 对流进行观察之后返回的对象，主要用于unsubscribe </b></p>
+</li>
+<li><p>Operators 运算符：是纯函数，可实现函数式编程风格，通过映射，过滤器，concat，reduce等操作来处理集合。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title class_">Subscription</span> = <span class="title class_">Observable</span>.<span class="title function_">pipe</span>(<span class="title class_">Operators</span>).<span class="property">subscribe</span> (observer)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Subject 主题：等效于 EventEmitter，是将值或事件多播给多个观察者的唯一方法。</p>
+</li>
+<li><p>Schedulers 调度程序：是控制并发性的集中式调度程序，允许我们在诸如setTimeout或requestAnimationFrame或其他情况下进行计算时进行协调。</p>
+</li>
+</ul>
+<h3 id="纯度"><a href="#纯度" class="headerlink" title="纯度"></a>纯度</h3><p>RxJS的强大之处在于它能够使用纯函数生成值。这意味着您的代码不容易出错。</p>
+<p>通常，您将创建一个不纯函数，其中代码的其他部分可能会弄乱您的状态。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> count = <span class="number">0</span>;</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Clicked <span class="subst">$&#123;++count&#125;</span> times`</span>));</span><br></pre></td></tr></table></figure>
+
+<p>RxJS 可以让你隔离状态.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; fromEvent, scan &#125; <span class="keyword">from</span> <span class="string">&#x27;rxjs&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_">fromEvent</span>(<span class="variable language_">document</span>, <span class="string">&#x27;click&#x27;</span>)</span><br><span class="line">  .<span class="title function_">pipe</span>(<span class="title function_">scan</span>(<span class="function">(<span class="params">count</span>) =&gt;</span> count + <span class="number">1</span>, <span class="number">0</span>))</span><br><span class="line">  .<span class="title function_">subscribe</span>(<span class="function">(<span class="params">count</span>) =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Clicked <span class="subst">$&#123;count&#125;</span> times`</span>));</span><br></pre></td></tr></table></figure>
+<p>扫描运算符的工作方式与数组的 reduce 一样。它向回调公开返回值。然后，回调的返回值将成为下次运行回调时公开的值。</p>
+<h3 id="流"><a href="#流" class="headerlink" title="流"></a>流</h3><p>RxJS 具有一系列运算符，可帮助您控制事件流经可观察量的方式。</p>
+]]></content>
+      <categories>
+        <category>Js</category>
+      </categories>
+      <tags>
+        <tag>rxjs</tag>
       </tags>
   </entry>
 </search>
